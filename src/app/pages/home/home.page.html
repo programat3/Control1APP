@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Sistema de Asistencia Duoc UC
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">
+        <ion-label #titulo>
+          <h1>¡Bienvenid@!</h1>
+        </ion-label>
+        <ion-label #nombre>
+          <h2 *ngIf = "usuario">{{ usuario.nombre }}</h2>
+        </ion-label>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <input #fileinput id="input-file" type="file" accept="image/*;capture=camera"
+    (change)="verificarArchivoConQR($event)">
+
+    <ion-button (click)="cargarImagenDesdeArchivo" expand="full" shape="round">
+      cargar imagen con código QR
+    </ion-button>
+  
+
+</ion-content>
