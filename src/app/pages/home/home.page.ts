@@ -44,7 +44,8 @@ export class HomePage implements OnInit, AfterViewInit{
       .addElement(this.titulo.nativeElement)
       .iterations(Infinity)
       .duration(6000)
-      .fromTo('transform', 'translatey(0px)', 'translatey(20px)')
+      .fromTo('transform', 'translate(0%)', 'translate(100%)')
+      .fromTo('opacity', 0.2, 1);
       animation.play();
   }
 
