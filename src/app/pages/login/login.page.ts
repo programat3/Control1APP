@@ -35,7 +35,6 @@ export class LoginPage implements OnInit {
         usuario: this.usuario
       }
     };
-
     this.router.navigate(['/home'], navigationExtras);
   }
 

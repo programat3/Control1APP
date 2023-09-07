@@ -19,7 +19,7 @@ export class Usuario{
         const lista =[]
         lista.push(new Usuario('atorres@duocuc.cl', '1234', 'Ana Torres Leiva'
             , 'Nombre de su mascota', 'gato'));
-        lista.push(new Usuario('avalenzuela', 'qwer', 'JAlberto Valenzuela Nuñez'
+        lista.push(new Usuario('avalenzuela@duocuc.cl', 'qwer', 'Alberto Valenzuela Nuñez'
             , 'Nombre de su mejor amigo', 'juanito'));
         lista.push(new Usuario('cfuentes@duocuc.cl', 'asdf', 'Carla Fuentes Gonzales'
             , 'Lugar de nacimiento de su madre', 'Valparaíso'));
