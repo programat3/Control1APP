@@ -138,7 +138,7 @@ export class HomePage implements OnInit, AfterViewInit{
   public limpiarDatos(){
     this.escaneando = false;
     this.datosQR = '';
-    this.loading = new HTMLIonLoadingElement();
+    this.loading = null;
     (document.getElementById('input-file') as HTMLInputElement).value = '';
   }
 
