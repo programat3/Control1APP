@@ -22,7 +22,7 @@ export class HomePage implements OnInit, AfterViewInit{
   public usuario: Usuario;
   public escaneando = false;
   public datosQR = '';
-  public loading: HTMLIonLoadingElement = new HTMLIonLoadingElement();
+  public loading: HTMLIonLoadingElement | null = null;
   
   constructor(private loadingController : LoadingController,
     private route: ActivatedRoute,
