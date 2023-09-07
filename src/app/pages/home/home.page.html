@@ -12,4 +12,40 @@
     <h2 style="text-align: center;" *ngIf = "usuario">{{ usuario.nombre }}</h2>
   </ion-label>
 
+  <input hidden #fileinput id="input-file" type="file" accept="image/*;capture=camera"
+    (change) = "verificarArchivoConQR($event)">
+  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Cargar Imagen Con Código QR
+  </ion-button>
+  <ion-button *ngIf = "!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="videocam-outline"></ion-icon>
+    Comenzar Escaneo de QR
+  </ion-button>
+
+  <ion-button *ngIf = "escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
+    Detener Escaneo de QR
+  </ion-button>
+
+  <ion-button  (click)="limpiarDatos()" expand="full" shape="round">
+    <ion-icon slot="start" name="trash"></ion-icon>
+    Limpiar Datos
+  </ion-button>
+
+  <video #video [hidden]="!escaneando" width="100%"></video>
+  <canvas #canvas hidden></canvas>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Código QR</ion-card-title>
+      <ion-card-content>
+        <br>
+        Datos: {{ datosQR }}
+        <br>
+        Escaneando: {{escaneando}}
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>
