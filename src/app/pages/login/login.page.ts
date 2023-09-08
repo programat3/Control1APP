@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, NavigationExtras} from '@angular/router'
+import { Router, NavigationExtras } from '@angular/router'
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 
@@ -16,15 +16,15 @@ export class LoginPage implements OnInit {
     this.usuario = new Usuario('', '', '', '', '');
     this.usuario.correo = '';
     this.usuario.password = '';
-   }
+  }
 
   ngOnInit() {
     this.usuario.correo = 'atorres@duocuc.cl';
     this.usuario.password = '1234';
   }
 
-  public ingresar(): void{
-    if(!this.validarUsuario(this.usuario)){
+  public ingresar(): void {
+    if (!this.validarUsuario(this.usuario)) {
       return;
     }
 
@@ -38,15 +38,14 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/home'], navigationExtras);
   }
 
-  public validarUsuario(usuario: Usuario): boolean
-  {
+  public validarUsuario(usuario: Usuario): boolean {
     const usu = this.usuario.buscarUsuarioValido(
       this.usuario.correo, this.usuario.password);
-    if(usu){
+    if (usu) {
       this.usuario = usu
       return true;
     }
-    else{
+    else {
       this.mostrarMensaje('Credenciales Inválidas')
       return false;
     }
@@ -54,9 +53,9 @@ export class LoginPage implements OnInit {
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
     const toast = await this.toastController.create({
-        message: mensaje,
-        duration: duracion? duracion: 2000
-      });
+      message: mensaje,
+      duration: duracion ? duracion : 2000
+    });
     toast.present();
   }
 
