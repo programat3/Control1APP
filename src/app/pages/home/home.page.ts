@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { AnimationController} from '@ionic/angular';
+import { AnimationController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 import jsQR, { QRCode } from 'jsqr';
 
@@ -11,45 +11,57 @@ import jsQR, { QRCode } from 'jsqr';
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage implements OnInit, AfterViewInit{
+export class HomePage implements OnInit, AfterViewInit {
 
-  @ViewChild('titulo', { read: ElementRef, static: true}) titulo!: ElementRef;
-  @ViewChild('nombre', { read: ElementRef, static: true}) nombre!: ElementRef;
-  @ViewChild('fileinput', {static: false}) fileinput!: ElementRef;
-  @ViewChild('video',{static: false}) video !: ElementRef;
-  @ViewChild('canvas',{static: false}) canvas !: ElementRef;
+
+
+  @ViewChild('titulo', { read: ElementRef, static: true }) titulo!: ElementRef;
+  @ViewChild('nombre', { read: ElementRef, static: true }) nombre!: ElementRef;
+  @ViewChild('fileinput', { static: false }) fileinput!: ElementRef;
+  @ViewChild('video', { static: false }) video !: ElementRef;
+  @ViewChild('canvas', { static: false }) canvas !: ElementRef;
 
   public usuario: Usuario;
   public escaneando = false;
   public datosQR = '';
   public loading: HTMLIonLoadingElement | null = null;
-  
-  constructor(private loadingController : LoadingController,
+
+  public sede: number = 0;
+  public idAsignatura: number = 0;
+  public seccion: string = '';
+  public nombreAsignatura: string = '';
+  public nombreProfesor: string = '';
+  public dia: string = '';
+  public bloqueInicio: string = '';
+  public bloqueTermino: string = '';
+  public horaInicio: string = '';
+  public horaFin: string = '';
+
+  constructor(private loadingController: LoadingController,
     private route: ActivatedRoute,
-      private router: Router,
-      private animationController: AnimationController)
-      {
-        this.usuario = history.state['usuario'];
-      }
-  
+    private router: Router,
+    private animationController: AnimationController) {
+    this.usuario = history.state['usuario'];
+  }
+
   ngOnInit(): void {
   }
 
   public ngAfterViewInit(): void {
-      const animation = this.animationController
+    const animation = this.animationController
       .create()
       .addElement(this.titulo.nativeElement)
       .iterations(Infinity)
       .duration(6000)
       .fromTo('transform', 'translate(-100%)', 'translate(100%)')
       .fromTo('opacity', 0.2, 1);
-      animation.play();
+    animation.play();
   }
 
-  public obtenerDatosQR(source?: CanvasImageSource): boolean{
+  public obtenerDatosQR(source?: CanvasImageSource): boolean {
     let w = 0;
     let h = 0;
-    if(!source){
+    if (!source) {
       this.canvas.nativeElement.width = this.video.nativeElement.videoWitdth;
       this.canvas.nativeElement.width = this.video.nativeElement.videoHeight;
     }
@@ -58,46 +70,60 @@ export class HomePage implements OnInit, AfterViewInit{
     h = this.canvas.nativeElement.height;
 
     const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
-    context.drawImage(source? source : this.video.nativeElement, 0 , 0 , w, h);
+    context.drawImage(source ? source : this.video.nativeElement, 0, 0, w, h);
 
-    const img: ImageData = context.getImageData(0,0,w,h);
+    const img: ImageData = context.getImageData(0, 0, w, h);
 
-    const qrCode = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert'});
+    const qrCode = jsQR(img.data, img.width, img.height, { inversionAttempts: 'dontInvert' });
 
-    if(qrCode){
+    if (qrCode) {
       this.escaneando = false;
       this.datosQR = qrCode.data;
+      this.mostrarDatosQRLista(this.datosQR);
     }
 
-    return(this.datosQR !== '');
-
+    return (this.datosQR !== '');
   }
 
-  public verificarArchivoConQR(event : Event){
+  public mostrarDatosQRLista(datosQR: string): void {
+    const objetoDatosQR = JSON.parse(datosQR);
+    this.sede = objetoDatosQR.sede;
+    this.idAsignatura = objetoDatosQR.idAsignatura;
+    this.seccion = objetoDatosQR.seccion;
+    this.nombreAsignatura = objetoDatosQR.nombreAsignatura;
+    this.nombreProfesor = objetoDatosQR.nombreProfesor;
+    this.dia = objetoDatosQR.dia;
+    this.bloqueInicio = objetoDatosQR.bloqueInicio;
+    this.bloqueTermino = objetoDatosQR.bloqueTermino;
+    this.horaInicio = objetoDatosQR.horaInicio;
+    this.horaFin = objetoDatosQR.horaFin;
+  }
+
+  public verificarArchivoConQR(event: Event) {
     try {
       const element = event.currentTarget as HTMLInputElement;
       let fileList: FileList | null = element.files;
-      if(fileList){
+      if (fileList) {
         const file = fileList.item(0)
         const img = new Image();
         img.onload = () => {
-        this.obtenerDatosQR(img);
+          this.obtenerDatosQR(img);
+        }
+        if (file) {
+          img.src = URL.createObjectURL(file);
+        }
       }
-      if(file){
-        img.src = URL.createObjectURL(file);
-      }
-      }
-      
-    } catch{}
+
+    } catch { }
   }
-  public cargarImagenDesdeArchivo() :void{
+  public cargarImagenDesdeArchivo(): void {
     this.limpiarDatos();
     this.fileinput.nativeElement.click();
   }
 
-  public async comenzarEscaneoQR(){
+  public async comenzarEscaneoQR() {
     this.limpiarDatos();
-    const mediaProvider : MediaProvider = await navigator.mediaDevices.getUserMedia({
+    const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: 'enviroment'
       }
@@ -110,32 +136,32 @@ export class HomePage implements OnInit, AfterViewInit{
 
     requestAnimationFrame(this.verificarVideo.bind(this));
   }
-  public detenerEscaneoQR() : void{
+  public detenerEscaneoQR(): void {
     this.escaneando = false;
-  }  
+  }
 
-  async verificarVideo(){
-    if(this.video.nativeElement.readyState ===  this.video.nativeElement.HAVE_ENOUGH_DATA){
-      if (this.loading){
+  async verificarVideo() {
+    if (this.video.nativeElement.readyState === this.video.nativeElement.HAVE_ENOUGH_DATA) {
+      if (this.loading) {
         await this.loading.dismiss();
         this.loading = new HTMLIonLoadingElement;
         this.escaneando = true;
       }
-      if(this.obtenerDatosQR()){
+      if (this.obtenerDatosQR()) {
         console.log('datos obtenidos!');
-      }else{
-        if(this.escaneando){
+      } else {
+        if (this.escaneando) {
           console.log('escaneando...')
           requestAnimationFrame(this.verificarVideo.bind(this));
         }
       }
-    } else{
+    } else {
       console.log('video aún no tiene datos');
       requestAnimationFrame(this.verificarVideo.bind(this));
     }
   }
 
-  public limpiarDatos(){
+  public limpiarDatos() {
     this.escaneando = false;
     this.datosQR = '';
     this.loading = null;

@@ -9,26 +9,26 @@
 <ion-content [fullscreen]="true">
   <h1 style="text-align: center;">¡Bienvenid@!</h1>
   <ion-label #nombre>
-    <h2 style="text-align: center;" *ngIf = "usuario">{{ usuario.nombre }}</h2>
+    <h2 style="text-align: center;" *ngIf="usuario">{{ usuario.nombre }}</h2>
   </ion-label>
 
   <input hidden #fileinput id="input-file" type="file" accept="image/*;capture=camera"
-    (change) = "verificarArchivoConQR($event)">
+    (change)="verificarArchivoConQR($event)">
   <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
     <ion-icon slot="start" name="camera"></ion-icon>
     Cargar Imagen Con Código QR
   </ion-button>
-  <ion-button *ngIf = "!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
     <ion-icon slot="start" name="videocam-outline"></ion-icon>
     Comenzar Escaneo de QR
   </ion-button>
 
-  <ion-button *ngIf = "escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
+  <ion-button *ngIf="escaneando" (click)="detenerEscaneoQR()" expand="full" shape="round">
     <ion-icon slot="start" name="stop-circle-outline"></ion-icon>
     Detener Escaneo de QR
   </ion-button>
 
-  <ion-button  (click)="limpiarDatos()" expand="full" shape="round">
+  <ion-button (click)="limpiarDatos()" expand="full" shape="round">
     <ion-icon slot="start" name="trash"></ion-icon>
     Limpiar Datos
   </ion-button>
@@ -41,15 +41,58 @@
       <ion-card-title>Código QR</ion-card-title>
       <ion-card-content>
         <br>
-        Datos: {{ datosQR }}
-        <br>
+        <table>
+          <tr>
+            <td>Sede:</td>
+            <td>{{sede}}</td>
+          <tr>
+          <tr>
+            <td>Id de Asignatura</td>
+            <td>{{idAsignatura}}</td>
+          <tr>
+          <tr>
+            <td>Seccion</td>
+            <td>{{seccion}}</td>
+          <tr>
+          <tr>
+            <td>Nombre de signatura</td>
+            <td>{{nombreAsignatura}}</td>
+          <tr>
+          <tr>
+            <td>NombreProfesor</td>
+            <td>{{nombreProfesor}}</td>
+          <tr>
+          <tr>
+            <td>Dia</td>
+            <td>{{dia}}</td>
+          <tr>
+          <tr>
+            <td>Hora Bloque de Inicio</td>
+            <td>{{bloqueInicio}}</td>
+          <tr>
+          <tr>
+            <td>Hora Bloque de Termino</td>
+            <td>{{bloqueTermino}}</td>
+          <tr>
+          <tr>
+            <td>Hora de Inicio</td>
+            <td>{{horaInicio}}</td>
+          <tr>
+          <tr>
+            <td>Hora Fin</td>
+            <td>{{horaFin}}</td>
+          <tr>
+        </table>
+
+        <br><br>
         Escaneando: {{escaneando}}
       </ion-card-content>
     </ion-card-header>
   </ion-card>
 
   <ion-item>
-    <ion-label [routerLink]="['/login']" class="ion-activated" style="display: flex; justify-content: center; align-items: center;">
+    <ion-label [routerLink]="['/login']" class="ion-activated"
+      style="display: flex; justify-content: center; align-items: center;">
       Cerrar sesión
       <!-- Usamos ion-text-center para que el texto se muestre al centro horizontalmente -->
     </ion-label>
