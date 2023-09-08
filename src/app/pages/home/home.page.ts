@@ -91,12 +91,12 @@ export class HomePage implements OnInit, AfterViewInit{
     } catch{}
   }
   public cargarImagenDesdeArchivo() :void{
-    //this.limpiarDatos();
+    this.limpiarDatos();
     this.fileinput.nativeElement.click();
   }
 
   public async comenzarEscaneoQR(){
-    //this.limpiarDatos();
+    this.limpiarDatos();
     const mediaProvider : MediaProvider = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: 'enviroment'
