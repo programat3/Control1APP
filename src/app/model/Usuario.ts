@@ -70,7 +70,7 @@ export class Usuario{
       }
     
     
-    public validarRespuesta(respuesta: string, correo: string): Usuario | null{
+    public buscarUsuarioRespuesta(respuesta: string, correo: string): Usuario | null{
         const usuario = this.listaUsuariosValidos().find(
             usu => usu.correo === correo && usu.respuestaSecreta === respuesta);
         if(usuario !== undefined){

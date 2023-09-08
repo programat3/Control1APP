@@ -9,19 +9,21 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class PreguntaPage implements OnInit {
   public usuario : Usuario;
+  public respuestaSecreta: string;
   constructor(private loadingController : LoadingController,
     private route: ActivatedRoute,
       private router: Router) { 
         this.usuario = history.state['usuario'];
         this.usuario.respuestaSecreta = ''
+        this.respuestaSecreta = ''
       }
 
   ngOnInit() {
   }
 
-  public validarPregunta(): boolean{
-    const usu = this.usuario.validarRespuesta(
-      this.usuario.correo, this.usuario.respuestaSecreta);
+  public validarPregunta(usuario: Usuario): boolean{
+    const usu = usuario.buscarUsuarioRespuesta(
+      usuario.correo, this.respuestaSecreta);
       if (usu) {
         this.usuario = usu
         return true;
@@ -32,7 +34,8 @@ export class PreguntaPage implements OnInit {
   }
 
   public redirigir(){
-    if(this.validarPregunta()){
+    this.usuario.respuestaSecreta = this.respuestaSecreta
+    if(this.validarPregunta(this.usuario)){
       const navigationExtras: NavigationExtras = {
         state: {
           usuario: this.usuario
