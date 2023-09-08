@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RecoverPageRoutingModule } from './recover-routing.module';
+import { CorreoPageRoutingModule } from './correo-routing.module';
 
-import { RecoverPage } from './recover.page';
+import { CorreoPage } from './correo.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecoverPageRoutingModule
+    CorreoPageRoutingModule
   ],
-  declarations: [RecoverPage]
+  declarations: [CorreoPage]
 })
-export class RecoverPageModule {}
+export class CorreoPageModule {}

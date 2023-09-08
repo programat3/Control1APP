@@ -9,18 +9,19 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: 'recover',
-    loadChildren: () => import('./pages/recover/recover.module').then( m => m.RecoverPageModule)
-  },  {
     path: 'pregunta',
-    loadChildren: () => import('./pages/pregunta/pregunta.module').then( m => m.PreguntaPageModule)
+    loadChildren: () => import('./pages/pregunta/pregunta.module').then(m => m.PreguntaPageModule)
+  },
+  {
+    path: 'correo',
+    loadChildren: () => import('./pages/correo/correo.module').then(m => m.CorreoPageModule)
   },
 
 ];
