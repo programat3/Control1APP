@@ -24,17 +24,11 @@
         <ion-item>
           <ion-label position="floating">Usuario</ion-label>
           
-          <!-- Usamos ngModel para indicarle al input con que propiedad del controlador va a trabajar -->
           <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
           
         </ion-item>
         <ion-item>
           <ion-label position="floating" >Password</ion-label>
-          <!--
-            El type Password inmediatamente pasa lo que uno
-            escribe a *****
-            Nuevamente usamos ngModel para indicarle al input que propiedad a utilizar
-          -->
           <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
         </ion-item>
         <ion-row>

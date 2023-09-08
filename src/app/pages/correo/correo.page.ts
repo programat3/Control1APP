@@ -18,16 +18,12 @@ export class CorreoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.usuario.correo = 'atorres@duocuc.cl';
-    this.usuario.password = '1234';
   }
 
-  public ingresar(): void {
+  public preguntar(): void {
     if (!this.validarUsuario(this.usuario)) {
       return;
     }
-
-    this.mostrarMensaje('¡Bienvenid@!');
 
     const navigationExtras: NavigationExtras = {
       state: {
@@ -38,8 +34,8 @@ export class CorreoPage implements OnInit {
   }
 
   public validarUsuario(usuario: Usuario): boolean {
-    const usu = this.usuario.buscarUsuarioValido(
-      this.usuario.correo, this.usuario.password);
+    const usu = this.usuario.buscarUsuarioCorreo(
+      this.usuario.correo);
     if (usu) {
       this.usuario = usu
       return true;

@@ -34,6 +34,17 @@ export class Usuario{
             return null
         }
     }
+
+    public buscarUsuarioCorreo(correo: string): Usuario | null{
+        const usuario = this.listaUsuariosValidos().find(
+            usu => usu.correo === correo);
+        if (usuario !== undefined){
+            return usuario
+        }else{
+            return null
+        }
+    }
+
     public validarCorreo():string{
         if(this.correo.trim() === ''){
             return 'Para ingresar al sistema debe ingresar un nombre de usuario.';
@@ -59,6 +70,17 @@ export class Usuario{
       }
     
     
+    public validarRespuesta(respuesta: string, correo: string): Usuario | null{
+        const usuario = this.listaUsuariosValidos().find(
+            usu => usu.correo === correo && usu.respuestaSecreta === respuesta);
+        if(usuario !== undefined){
+            return usuario
+        }
+        else{
+            return null
+        }
+    }
+
     public validarUsuario(): string {
     return this.validarCorreo()
       || this.validarPassword();
