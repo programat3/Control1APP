@@ -13,29 +13,37 @@ export class PreguntaPage implements OnInit {
     private route: ActivatedRoute,
       private router: Router) { 
         this.usuario = history.state['usuario'];
+        this.usuario.respuestaSecreta = ''
       }
 
   ngOnInit() {
   }
 
-  public validarPregunta(usuario : Usuario): boolean{
-    if(usuario.validarRespuesta(usuario.correo, usuario.respuestaSecreta)){
-      this.usuario = usuario
-      return true
-    }
-    else{
-      return false
-    }
+  public validarPregunta(): boolean{
+    const usu = this.usuario.validarRespuesta(
+      this.usuario.correo, this.usuario.respuestaSecreta);
+      if (usu) {
+        this.usuario = usu
+        return true;
+      }
+      else {
+        return false;
+      }
   }
 
   public redirigir(){
-    if(this.validarPregunta(this.usuario)){
+    if(this.validarPregunta()){
       const navigationExtras: NavigationExtras = {
         state: {
           usuario: this.usuario
         }
       };
-      //this.router.navigate(['/recuperarExitoso'], navigationExtras);
+      console.log("VALIDO")
+      this.router.navigate(['/recuperar-exitoso'], navigationExtras);
+    }
+    else{
+      console.log("INVALIDO");
+      this.router.navigate(['/recuperar-fallido']);
     }
   }
 

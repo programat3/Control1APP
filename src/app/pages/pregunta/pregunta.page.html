@@ -1,7 +1,35 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Sistema de Asistencia DUOC UC</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-title class="ion-padding-top ion-text-center">
+    <ion-label>
+      <h1>Sistema de Asistencia DUOC UC</h1>
+    </ion-label>
+  </ion-title>
+  <div class="ion-padding-vertical"></div>
+
+  <ion-card class="ion-text-center">
+
+    <ion-card-title class="ion-text-center">
+      <ion-label>
+        Paso 2: Responda la pregunta
+      </ion-label>
+      <br>
+      <br>
+      <ion-label>
+        <h2>{{usuario.fraseSecreta}}</h2>
+      </ion-label>
+    </ion-card-title>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label class="ion-text-left" position="floating">Ingrese su respuesta</ion-label>
+        <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="block" (click)="redirigir()">Validar Pregunta</ion-button>
+          </ion-col>
+        </ion-row>      
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
