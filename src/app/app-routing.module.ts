@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'recuperar-exitoso',
     loadChildren: () => import('./pages/recuperar-exitoso/recuperar-exitoso.module').then( m => m.RecuperarExitosoPageModule)
   },
+  {
+    path: 'recuperar-fallido',
+    loadChildren: () => import('./pages/recuperar-fallido/recuperar-fallido.module').then( m => m.RecuperarFallidoPageModule)
+  },
 
 
 ];
