@@ -10,39 +10,42 @@
       <h1>Log In</h1>
     </ion-label>
   </ion-title>
-  <div class="ion-padding-vertical">
+  <ion-content padding class="background">
+    <div class="ion-padding-vertical">
 
-    <ion-card class="ion-text-center ion-padding-vertical">
+      <ion-card class="ion-text-center ion-padding-vertical">
 
-      <ion-card-title class="ion-text-center">
-        <ion-label>
-          <h2>¡Bienvenid@!</h2>
-        </ion-label>
-      </ion-card-title>
+        <ion-card-title class="ion-text-center">
+          <ion-label>
+            <h2>¡Bienvenid@!</h2>
+          </ion-label>
+        </ion-card-title>
 
-      <ion-card-content>
-        <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating">Usuario</ion-label>
 
-          <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
+            <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
 
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
-        </ion-item>
-        <ion-row>
-          <ion-col size="12">
-            <ion-button shape="block" (click)="ingresar()">Ingresar</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
+          </ion-item>
+          <ion-row>
+            <ion-col size="12">
+              <ion-button shape="block" (click)="ingresar()">Ingresar</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-label>
+            <br>
+            <a [routerLink]="['/correo']">Recuperar Contraseña</a>
+          </ion-label>
+        </ion-card-content>
 
-    </ion-card>
-    <ion-label>
-      <br>
-      <a [routerLink]="['/correo']">Recuperar Contraseña</a>
-    </ion-label>
+      </ion-card>
 
-  </div>
+
+    </div>
+  </ion-content>
 </ion-content>
