@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
@@ -93,17 +93,14 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   public mostrarDatosQRLista(datosQR: string): void {
+
     const objetoDatosQR = JSON.parse(datosQR);
-    this.sede = objetoDatosQR.sede;
-    this.idAsignatura = objetoDatosQR.idAsignatura;
-    this.seccion = objetoDatosQR.seccion;
-    this.nombreAsignatura = objetoDatosQR.nombreAsignatura;
-    this.nombreProfesor = objetoDatosQR.nombreProfesor;
-    this.dia = objetoDatosQR.dia;
-    this.bloqueInicio = objetoDatosQR.bloqueInicio;
-    this.bloqueTermino = objetoDatosQR.bloqueTermino;
-    this.horaInicio = objetoDatosQR.horaInicio;
-    this.horaFin = objetoDatosQR.horaFin;
+    const navigationExtras: NavigationExtras = {
+      state: {
+        datos: objetoDatosQR
+      }
+    };
+    this.router.navigate(['/datos'], navigationExtras)
   }
 
   public verificarArchivoConQR(event: Event) {

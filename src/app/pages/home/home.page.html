@@ -36,65 +36,10 @@
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Código QR</ion-card-title>
-      <ion-card-content>
-        <br>
-        <table>
-          <tr>
-            <td>Sede:</td>
-            <td>{{sede}}</td>
-          <tr>
-          <tr>
-            <td>Id de Asignatura:</td>
-            <td>{{idAsignatura}}</td>
-          <tr>
-          <tr>
-            <td>Seccion:</td>
-            <td>{{seccion}}</td>
-          <tr>
-          <tr>
-            <td>Nombre de signatura:</td>
-            <td>{{nombreAsignatura}}</td>
-          <tr>
-          <tr>
-            <td>NombreProfesor:</td>
-            <td>{{nombreProfesor}}</td>
-          <tr>
-          <tr>
-            <td>Dia:</td>
-            <td>{{dia}}</td>
-          <tr>
-          <tr>
-            <td>Hora Bloque de Inicio:</td>
-            <td>{{bloqueInicio}}</td>
-          <tr>
-          <tr>
-            <td>Hora Bloque de Termino:</td>
-            <td>{{bloqueTermino}}</td>
-          <tr>
-          <tr>
-            <td>Hora de Inicio:</td>
-            <td>{{horaInicio}}</td>
-          <tr>
-          <tr>
-            <td>Hora Fin:</td>
-            <td>{{horaFin}}</td>
-          <tr>
-        </table>
-
-        <br><br>
-        Escaneando: {{escaneando}}
-      </ion-card-content>
-    </ion-card-header>
-  </ion-card>
-
   <ion-item>
     <ion-label [routerLink]="['/login']" class="ion-activated"
       style="display: flex; justify-content: center; align-items: center;">
       Cerrar sesión
-      <!-- Usamos ion-text-center para que el texto se muestre al centro horizontalmente -->
     </ion-label>
   </ion-item>
 </ion-content>
