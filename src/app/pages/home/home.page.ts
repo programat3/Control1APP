@@ -55,7 +55,14 @@ export class HomePage implements OnInit, AfterViewInit {
       .duration(6000)
       .fromTo('transform', 'translate(-100%)', 'translate(100%)')
       .fromTo('opacity', 0.2, 1);
-    animation.play();
+    animation.play()
+      const animationNombre = this.animationController
+      .create()
+      .addElement(this.nombre.nativeElement)
+      .iterations(Infinity)
+      .duration(6000)
+      .fromTo('opacity', 0.2, 1);
+    animationNombre.play();
   }
 
   public obtenerDatosQR(source?: CanvasImageSource): boolean {
