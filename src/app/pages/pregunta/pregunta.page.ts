@@ -9,44 +9,37 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class PreguntaPage implements OnInit {
   public usuario : Usuario;
-  public respuestaSecreta: string;
+  public respuestaUsuario: string;
   constructor(private loadingController : LoadingController,
     private route: ActivatedRoute,
       private router: Router) { 
         this.usuario = history.state['usuario'];
-        this.usuario.respuestaSecreta = ''
-        this.respuestaSecreta = ''
+        this.respuestaUsuario = ''
       }
 
   ngOnInit() {
   }
 
-  public validarPregunta(usuario: Usuario): boolean{
-    const usu = usuario.buscarUsuarioRespuesta(
-      usuario.correo, this.respuestaSecreta);
-      if (usu) {
-        this.usuario = usu
-        return true;
+  public redirigir(): void {
+    if (!this.validarUsuarioRespuesta(this.usuario)) {
+      this.router.navigate(['/recuperar-fallido']);
+    }
+
+    const navigationExtras: NavigationExtras = {
+      state: {
+        usuario: this.usuario
       }
-      else {
-        return false;
-      }
+    };
+    this.router.navigate(['/recuperar-exitoso'], navigationExtras);
   }
 
-  public redirigir(){
-    this.usuario.respuestaSecreta = this.respuestaSecreta
-    if(this.validarPregunta(this.usuario)){
-      const navigationExtras: NavigationExtras = {
-        state: {
-          usuario: this.usuario
-        }
-      };
-      console.log("VALIDO")
-      this.router.navigate(['/recuperar-exitoso'], navigationExtras);
+  public validarUsuarioRespuesta(usuario: Usuario): boolean {
+    if(this.usuario.respuestaSecreta === this.respuestaUsuario){
+      this.usuario.respuestaSecreta = this.respuestaUsuario
+      return true
     }
     else{
-      console.log("INVALIDO");
-      this.router.navigate(['/recuperar-fallido']);
+      return false
     }
   }
 

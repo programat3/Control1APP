@@ -71,12 +71,11 @@ export class Usuario{
     
     
     public buscarUsuarioRespuesta(respuesta: string, correo: string): Usuario | null{
-        const usuario = this.listaUsuariosValidos().find(
-            usu => usu.correo === correo && usu.respuestaSecreta === respuesta);
-        if(usuario !== undefined){
-            return usuario
-        }
-        else{
+        const usuarioR = this.listaUsuariosValidos().find(
+            usu => (usu.correo === correo && usu.respuestaSecreta === respuesta));
+        if (usuarioR !== undefined){
+            return usuarioR
+        }else{
             return null
         }
     }
