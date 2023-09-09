@@ -21,21 +21,22 @@ export class PreguntaPage implements OnInit {
   }
 
   public redirigir(): void {
-    if (!this.validarUsuarioRespuesta(this.usuario)) {
+    if (this.validarUsuarioRespuesta(this.usuario) === false) {
       this.router.navigate(['/recuperar-fallido']);
     }
-
-    const navigationExtras: NavigationExtras = {
-      state: {
-        usuario: this.usuario
-      }
-    };
-    this.router.navigate(['/recuperar-exitoso'], navigationExtras);
+    else{
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: this.usuario
+        }
+      };
+      this.router.navigate(['/recuperar-exitoso'], navigationExtras);
+    }
+    
   }
 
   public validarUsuarioRespuesta(usuario: Usuario): boolean {
     if(this.usuario.respuestaSecreta === this.respuestaUsuario){
-      this.usuario.respuestaSecreta = this.respuestaUsuario
       return true
     }
     else{
