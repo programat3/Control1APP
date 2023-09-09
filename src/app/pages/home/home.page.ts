@@ -162,6 +162,16 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   public limpiarDatos() {
+    this.sede = 0;
+    this.idAsignatura = 0;
+    this.seccion = '';
+    this.nombreAsignatura = '';
+    this.nombreProfesor = '';
+    this.dia = '';
+    this.bloqueInicio = '';
+    this.bloqueTermino = '';
+    this.horaInicio = '';
+    this.horaFin = '';
     this.escaneando = false;
     this.datosQR = '';
     this.loading = null;
