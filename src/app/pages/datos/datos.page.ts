@@ -41,4 +41,12 @@ export class DatosPage implements OnInit {
     this.horaFin = this.objetoDatosQR.horaFin;
   }
 
+  public home(){
+    this.router.navigate(['/home'])
+  }
+
+  public cerrar(){
+    this.router.navigate(['/login'])
+  }
+
 }

@@ -61,7 +61,7 @@ export class HomePage implements OnInit, AfterViewInit {
       .addElement(this.nombre.nativeElement)
       .iterations(Infinity)
       .duration(6000)
-      .fromTo('opacity', 0.2, 1);
+      .fromTo('transform', 'translatey(-15px)','translatey(15px)');
     animationNombre.play();
   }
 
