@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-recuperar-fallido',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecuperarFallidoPage implements OnInit {
 
-  constructor() { }
+  constructor(private loadingController : LoadingController,
+    private route: ActivatedRoute,
+      private router: Router) { 
+      }
 
   ngOnInit() {
+  }
+
+  public volver(){
+    this.router.navigate(['/login']);
   }
 
 }

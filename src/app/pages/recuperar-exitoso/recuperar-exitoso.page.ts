@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
   selector: 'app-recuperar-exitoso',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecuperarExitosoPage implements OnInit {
 
-  constructor() { }
+  public usuario : Usuario;
 
-  ngOnInit() {
+  constructor(private loadingController : LoadingController,
+    private route: ActivatedRoute,
+      private router: Router) { 
+        this.usuario = history.state['usuario'];
+      }
+
+  ngOnInit(): void {
+    
+  }
+  public volver(){
+    this.router.navigate(['/login']);
   }
 
 }

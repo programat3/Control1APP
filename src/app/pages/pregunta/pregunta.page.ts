@@ -10,6 +10,7 @@ import { Usuario } from 'src/app/model/Usuario';
 export class PreguntaPage implements OnInit {
   public usuario : Usuario;
   public respuestaUsuario: string;
+  
   constructor(private loadingController : LoadingController,
     private route: ActivatedRoute,
       private router: Router) { 
