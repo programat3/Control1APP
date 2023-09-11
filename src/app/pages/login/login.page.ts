@@ -19,8 +19,8 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-    this.usuario.correo = 'atorres@duocuc.cl';
-    this.usuario.password = '1234';
+    this.usuario.correo = '';
+    this.usuario.password = '';
   }
 
   public ingresar(): void {

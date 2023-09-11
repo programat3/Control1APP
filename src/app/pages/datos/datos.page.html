@@ -1,11 +1,15 @@
-<ion-toolbar class="ion-align-items-center">
-  <ion-button (click)="home()">
-    <ion-icon slot="icon-only" name="home"></ion-icon>
-  </ion-button>
-  <ion-button (click)="cerrar()">
-    <ion-icon slot="icon-only" name="close"></ion-icon>
-  </ion-button>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-toolbar color="medium" class="ion-align-items-center">
+      <ion-button (click)="home()">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+      <ion-button (click)="cerrar()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-toolbar>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
   <ion-card>
     <table>
@@ -51,5 +55,5 @@
       <tr>
     </table>
   </ion-card>
-  
+
 </ion-content>
