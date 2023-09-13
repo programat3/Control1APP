@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimationController, LoadingController, ToastController } from '@ionic/angular';
 
@@ -7,7 +7,13 @@ import { AnimationController, LoadingController, ToastController } from '@ionic/
   templateUrl: './datos.page.html',
   styleUrls: ['./datos.page.scss'],
 })
-export class DatosPage implements OnInit {
+export class DatosPage implements OnInit, AfterViewInit {
+
+  @ViewChild('titulo', { read: ElementRef, static: true }) titulo!: ElementRef;
+  @ViewChild('nombre', { read: ElementRef, static: true }) nombre!: ElementRef;
+  @ViewChild('fileinput', { static: false }) fileinput!: ElementRef;
+  @ViewChild('video', { static: false }) video !: ElementRef;
+  @ViewChild('canvas', { static: false }) canvas !: ElementRef;
 
   public objetoDatosQR;
   public sede: number = 0;
@@ -22,9 +28,9 @@ export class DatosPage implements OnInit {
   public horaFin: string = '';
 
   constructor(private loadingController: LoadingController,
-  private route: ActivatedRoute,
-  private router: Router,
-  private animationController: AnimationController) { 
+    private route: ActivatedRoute,
+    private router: Router,
+    private animationController: AnimationController) {
     this.objetoDatosQR = history.state['datos'];
   }
 
@@ -41,11 +47,29 @@ export class DatosPage implements OnInit {
     this.horaFin = this.objetoDatosQR.horaFin;
   }
 
-  public home(){
+  public ngAfterViewInit(): void {
+    const animation = this.animationController
+      .create()
+      .addElement(this.titulo.nativeElement)
+      .iterations(Infinity)
+      .duration(6000)
+      .fromTo('transform', 'translate(-100%)', 'translate(100%)')
+      .fromTo('opacity', 0.2, 1);
+    animation.play()
+    const animationNombre = this.animationController
+      .create()
+      .addElement(this.nombre.nativeElement)
+      .iterations(Infinity)
+      .duration(6000)
+      .fromTo('transform', 'translatey(-15px)', 'translatey(15px)');
+    animationNombre.play();
+  }
+
+  public home() {
     this.router.navigate(['/home'])
   }
 
-  public cerrar(){
+  public cerrar() {
     this.router.navigate(['/login'])
   }
 

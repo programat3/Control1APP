@@ -56,12 +56,12 @@ export class HomePage implements OnInit, AfterViewInit {
       .fromTo('transform', 'translate(-100%)', 'translate(100%)')
       .fromTo('opacity', 0.2, 1);
     animation.play()
-      const animationNombre = this.animationController
+    const animationNombre = this.animationController
       .create()
       .addElement(this.nombre.nativeElement)
       .iterations(Infinity)
       .duration(6000)
-      .fromTo('transform', 'translatey(-15px)','translatey(15px)');
+      .fromTo('transform', 'translatey(-15px)', 'translatey(15px)');
     animationNombre.play();
   }
 

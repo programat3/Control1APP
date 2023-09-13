@@ -22,20 +22,19 @@ const routes: Routes = [
   {
     path: 'correo',
     loadChildren: () => import('./pages/correo/correo.module').then(m => m.CorreoPageModule)
-  },  {
+  },
+  {
     path: 'recuperar-exitoso',
-    loadChildren: () => import('./pages/recuperar-exitoso/recuperar-exitoso.module').then( m => m.RecuperarExitosoPageModule)
+    loadChildren: () => import('./pages/recuperar-exitoso/recuperar-exitoso.module').then(m => m.RecuperarExitosoPageModule)
   },
   {
     path: 'recuperar-fallido',
-    loadChildren: () => import('./pages/recuperar-fallido/recuperar-fallido.module').then( m => m.RecuperarFallidoPageModule)
+    loadChildren: () => import('./pages/recuperar-fallido/recuperar-fallido.module').then(m => m.RecuperarFallidoPageModule)
   },
   {
     path: 'datos',
-    loadChildren: () => import('./pages/datos/datos.module').then( m => m.DatosPageModule)
-  },
-
-
+    loadChildren: () => import('./pages/datos/datos.module').then(m => m.DatosPageModule)
+  }
 ];
 
 @NgModule({

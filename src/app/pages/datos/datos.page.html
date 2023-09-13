@@ -1,13 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-toolbar color="medium" class="ion-align-items-center">
-      <ion-button (click)="home()">
-        <ion-icon slot="icon-only" name="home"></ion-icon>
-      </ion-button>
-      <ion-button (click)="cerrar()">
-        <ion-icon slot="icon-only" name="close"></ion-icon>
-      </ion-button>
-    </ion-toolbar>
+  <ion-toolbar color="medium" class="ion-align-items-center">
+    <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
+    <ion-title #titulo>
+      Sistema de Asistencia Duoc UC
+    </ion-title>
+    <ion-button (click)="home()">
+      <ion-icon slot="icon-only" name="home"></ion-icon>
+    </ion-button>
+    <ion-button (click)="cerrar()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
