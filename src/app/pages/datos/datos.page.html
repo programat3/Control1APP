@@ -1,61 +1,71 @@
 <ion-header>
-  <ion-toolbar color="medium" class="ion-align-items-center">
+  <ion-toolbar color="secondary" class="ion-align-items-center">
     <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
     <ion-title #titulo>
       Sistema de Asistencia Duoc UC
     </ion-title>
-    <ion-button (click)="home()">
-      <ion-icon slot="icon-only" name="home"></ion-icon>
-    </ion-button>
-    <ion-button (click)="cerrar()">
-      <ion-icon slot="icon-only" name="close"></ion-icon>
-    </ion-button>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <table>
-      <tr>
-        <td>Sede: </td>
-        <td>{{sede}}</td>
-      <tr>
-      <tr>
-        <td>Id de Asignatura :</td>
-        <td>{{idAsignatura}}</td>
-      <tr>
-      <tr>
-        <td>Seccion: </td>
-        <td>{{seccion}}</td>
-      <tr>
-      <tr>
-        <td>Nombre de signatura: </td>
-        <td>{{nombreAsignatura}}</td>
-      <tr>
-      <tr>
-        <td>Nombre de Profesor: </td>
-        <td>{{nombreProfesor}}</td>
-      <tr>
-      <tr>
-        <td>Dia: </td>
-        <td>{{dia}}</td>
-      <tr>
-      <tr>
-        <td>Hora Bloque de Inicio: </td>
-        <td>{{bloqueInicio}}</td>
-      <tr>
-      <tr>
-        <td>Hora Bloque de Termino: </td>
-        <td>{{bloqueTermino}}</td>
-      <tr>
-      <tr>
-        <td>Hora de Inicio: </td>
-        <td>{{horaInicio}}</td>
-      <tr>
-      <tr>
-        <td>Hora Fin: </td>
-        <td>{{horaFin}}</td>
-      <tr>
-    </table>
-  </ion-card>
 
+
+
+<ion-content>
+  <div style="height: 90%; display: flex; align-items: center;
+      justify-content: center;">
+    <ion-card>
+      <h2 style="text-align: center;">Tus datos son</h2> 
+      <br>
+      <table>
+        <tr>
+          <td>Sede: </td>
+          <td>{{sede}}</td>
+        <tr>
+        <tr>
+          <td>Id de Asignatura :</td>
+          <td>{{idAsignatura}}</td>
+        <tr>
+        <tr>
+          <td>Seccion: </td>
+          <td>{{seccion}}</td>
+        <tr>
+        <tr>
+          <td>Nombre de signatura: </td>
+          <td>{{nombreAsignatura}}</td>
+        <tr>
+        <tr>
+          <td>Nombre de Profesor: </td>
+          <td>{{nombreProfesor}}</td>
+        <tr>
+        <tr>
+          <td>Dia: </td>
+          <td>{{dia}}</td>
+        <tr>
+        <tr>
+          <td>Hora Bloque de Inicio: </td>
+          <td>{{bloqueInicio}}</td>
+        <tr>
+        <tr>
+          <td>Hora Bloque de Termino: </td>
+          <td>{{bloqueTermino}}</td>
+        <tr>
+        <tr>
+          <td>Hora de Inicio: </td>
+          <td>{{horaInicio}}</td>
+        <tr>
+        <tr>
+          <td>Hora Fin: </td>
+          <td>{{horaFin}}</td>
+        <tr>
+      </table>
+    </ion-card>
+  </div>
 </ion-content>
+
+<ion-toolbar style="padding: 0px 22%;" color="medium" class="ion-align-items-center">
+  <ion-button style="width: 100px;" (click)="home()">
+    <ion-icon slot="icon-only" name="home"></ion-icon>
+  </ion-button>
+  <ion-button style="width: 100px;" (click)="cerrar()">
+    <ion-icon slot="icon-only" name="close"></ion-icon>
+  </ion-button>
+</ion-toolbar>

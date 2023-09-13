@@ -10,10 +10,6 @@ import { AnimationController, LoadingController, ToastController } from '@ionic/
 export class DatosPage implements OnInit, AfterViewInit {
 
   @ViewChild('titulo', { read: ElementRef, static: true }) titulo!: ElementRef;
-  @ViewChild('nombre', { read: ElementRef, static: true }) nombre!: ElementRef;
-  @ViewChild('fileinput', { static: false }) fileinput!: ElementRef;
-  @ViewChild('video', { static: false }) video !: ElementRef;
-  @ViewChild('canvas', { static: false }) canvas !: ElementRef;
 
   public objetoDatosQR;
   public sede: number = 0;
@@ -56,13 +52,6 @@ export class DatosPage implements OnInit, AfterViewInit {
       .fromTo('transform', 'translate(-100%)', 'translate(100%)')
       .fromTo('opacity', 0.2, 1);
     animation.play()
-    const animationNombre = this.animationController
-      .create()
-      .addElement(this.nombre.nativeElement)
-      .iterations(Infinity)
-      .duration(6000)
-      .fromTo('transform', 'translatey(-15px)', 'translatey(15px)');
-    animationNombre.play();
   }
 
   public home() {

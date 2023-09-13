@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="medium">
-    <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
+  <ion-toolbar color="secondary">
+    <img src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
     <ion-title #titulo>
       Sistema de Asistencia Duoc UC
     </ion-title>
@@ -16,30 +16,29 @@
       </ion-label>
     </ion-title>
   </div>
-  <div class="ion-padding-vertical"></div>
-  <div class="ion-padding-vertical"></div>
-  <div class="ion-padding-vertical"></div>
-  <div class="ion-padding-vertical"></div>
+  <div style="height: 90%; display: flex; align-items: center;
+      justify-content: center;">
 
-  <ion-card color='medium' class="ion-text-center">
+    <ion-card style="padding: 5%; width: 100%;" color='medium' class="ion-text-center">
 
-    <ion-card-title class="ion-text-center">
-      <ion-label>
-        Paso 1: ingresa tu correo
-      </ion-label>
-    </ion-card-title>
+      <ion-card-title class="ion-text-center">
+        <ion-label>
+          Paso 1: ingresa tu correo
+        </ion-label>
+      </ion-card-title>
 
-    <ion-card-content>
-      <ion-item color='medium'>
-        <ion-label class="ion-text-left" position="floating">Ingrese su correo</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario.correo"></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col size="12">
-          <ion-button shape="block" (click)="preguntar()">Siguiente</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-card-content>
-  </ion-card>
+      <ion-card-content>
+        <ion-item color='medium'>
+          <ion-label class="ion-text-left" position="floating">Ingrese su correo</ion-label>
+          <ion-input type="text" [(ngModel)]="usuario.correo"></ion-input>
+        </ion-item>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button shape="block" (click)="preguntar()">Siguiente</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
 </ion-content>
