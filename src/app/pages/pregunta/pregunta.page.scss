@@ -3,3 +3,11 @@
     min-width: 100px;
     max-width: max-content;
 }
+
+ion-content.background {
+    --background: none;
+    background-image: url('../../../assets/background.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

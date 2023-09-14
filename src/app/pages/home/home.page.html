@@ -7,18 +7,23 @@
   </ion-toolbar>
 </ion-header>
 <br>
-<ion-content [fullscreen]="true">
-  <h1 style="text-align: center;">¡Bienvenid@!</h1>
-  <br>
-  <ion-label>
-    <h2 #nombre style="text-align: center;">{{ usuario.nombre }}</h2>
-  </ion-label>
-  <br>
+<ion-content padding class="background">
+  <ion-item>
+    <ion-label style="display: flex; justify-content: center; align-items: center;">
+      <h1 style="text-align: center;">¡Bienvenid@!</h1>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <h2 #nombre style="text-align: center;">{{ usuario.nombre }}</h2>
+    </ion-label>
+  </ion-item>
+
   <input hidden #fileinput id="input-file" type="file" accept="image/*;capture=camera"
     (change)="verificarArchivoConQR($event)">
-  <ion-button (click)="cargarImagenDesdeArchivo()" expand="full" shape="round">
+  <ion-button (click)="comenzarEscaneoQR()" expand="full" shape="round">
     <ion-icon slot="start" name="camera"></ion-icon>
-    Cargar Imagen Con Código QR
+    Comenzar Escaneo QR
   </ion-button>
 
   <video #video [hidden]="!escaneando" width="100%"></video>

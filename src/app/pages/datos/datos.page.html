@@ -9,59 +9,78 @@
 
 
 
-<ion-content>
+<ion-content class="background">
   <div style="height: 90%; display: flex; align-items: center;
       justify-content: center;">
-    <ion-card>
-      <h2 style="text-align: center;">Tus datos son</h2> 
+    <ion-card style="padding: 5%;">
+      <h2 style="text-align: center;">Quedaste presente para la siguiente Asignatura</h2> 
       <br>
       <table>
         <tr>
           <td>Sede: </td>
-          <td>{{sede}}</td>
-        <tr>
+          <td></td>
+          <td class="respuesta">{{sede}}</td>
+        </tr>
+          <br>
         <tr>
           <td>Id de Asignatura :</td>
-          <td>{{idAsignatura}}</td>
+          <td></td>
+          <td class="respuesta">{{idAsignatura}}</td>
+        </tr>
+          <br>
         <tr>
+          <td>Sección: </td>
+          <td></td>
+          <td class="respuesta">{{seccion}}</td>
+        </tr>
+          <br>
         <tr>
-          <td>Seccion: </td>
-          <td>{{seccion}}</td>
+          <td>Asignatura: </td>
+          <td></td>
+          <td class="respuesta">{{nombreAsignatura}}</td>
+        </tr>
+          <br>
         <tr>
-        <tr>
-          <td>Nombre de signatura: </td>
-          <td>{{nombreAsignatura}}</td>
-        <tr>
-        <tr>
-          <td>Nombre de Profesor: </td>
-          <td>{{nombreProfesor}}</td>
-        <tr>
+          <td>Profesor: </td>
+          <td></td>
+          <td class="respuesta">{{nombreProfesor}}</td>
+        </tr>
+          <br>
         <tr>
           <td>Dia: </td>
-          <td>{{dia}}</td>
+          <td></td>
+          <td class="respuesta">{{dia}}</td>
+        </tr>
+          <br>
         <tr>
+          <td>Bloque de Inicio: </td>
+          <td></td>
+          <td class="respuesta">{{bloqueInicio}}</td>
+        </tr>
+        <br>
         <tr>
-          <td>Hora Bloque de Inicio: </td>
-          <td>{{bloqueInicio}}</td>
-        <tr>
-        <tr>
-          <td>Hora Bloque de Termino: </td>
-          <td>{{bloqueTermino}}</td>
-        <tr>
+          <td>Bloque de Termino:</td>
+          <td></td>
+          <td class="respuesta">{{bloqueTermino}}</td>
+        </tr>
+        <br>
         <tr>
           <td>Hora de Inicio: </td>
-          <td>{{horaInicio}}</td>
-        <tr>
+          <td></td>
+          <td class="respuesta">{{horaInicio}}</td>
+        </tr>
+        <br>
         <tr>
           <td>Hora Fin: </td>
-          <td>{{horaFin}}</td>
-        <tr>
+          <td></td>
+          <td class="respuesta">{{horaFin}}</td>
+        </tr>
       </table>
     </ion-card>
   </div>
 </ion-content>
 
-<ion-toolbar style="padding: 0px 22%;" color="medium" class="ion-align-items-center">
+<ion-toolbar style="padding: 0px 20%;" color="medium" class="ion-align-items-center">
   <ion-button style="width: 100px;" (click)="home()">
     <ion-icon slot="icon-only" name="home"></ion-icon>
   </ion-button>

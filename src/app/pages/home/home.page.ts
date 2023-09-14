@@ -134,11 +134,10 @@ export class HomePage implements OnInit, AfterViewInit {
     });
     this.video.nativeElement.srcObject = mediaProvider;
     this.video.nativeElement.setAttribute('playsinline', 'true');
-    this.loading = await this.loadingController.create({});
-    await this.loading.present();
     this.video.nativeElement.play();
 
     requestAnimationFrame(this.verificarVideo.bind(this));
+    this.escaneando = true;
   }
   public detenerEscaneoQR(): void {
     this.escaneando = false;
