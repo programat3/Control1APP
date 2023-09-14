@@ -22,7 +22,7 @@ export class CorreoPage implements OnInit {
 
   public preguntar(): void {
     if (!this.validarUsuario(this.usuario)) {
-      return;
+      return
     }
 
     const navigationExtras: NavigationExtras = {
@@ -41,8 +41,8 @@ export class CorreoPage implements OnInit {
       return true;
     }
     else {
-      this.mostrarMensaje('Credenciales Inválidas')
-      return false;
+      this.router.navigate(['/recuperar-fallido'])
+      return false
     }
   }
 
