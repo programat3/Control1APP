@@ -5,48 +5,44 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="background">
   <ion-title class="ion-padding-top ion-text-center">
     <ion-label>
       <h1>Inicio de sesión</h1>
     </ion-label>
   </ion-title>
-  <ion-content padding class="background">
-    <div slot="fixed">
-
-      <ion-card color="medium" class="ion-text-center ion-padding-vertical">
-
-        <ion-card-title class="ion-text-center">
-          <ion-label>
-            <h2>¡Bienvenid@!</h2>
-          </ion-label>
-        </ion-card-title>
-
-        <ion-card-content>
-          <ion-item color="medium">
-            <ion-label position="floating">Usuario</ion-label>
-
-            <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
-
-          </ion-item>
-          <ion-item color="medium">
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
-          </ion-item>
-          <ion-row>
-            <ion-col size="12">
-              <ion-button shape="block" (click)="ingresar()">Ingresar</ion-button>
-            </ion-col>
-          </ion-row>
-          <ion-label>
-            <br>
-            <a [routerLink]="['/correo']">Recuperar Contraseña</a>
-          </ion-label>
-        </ion-card-content>
-
-      </ion-card>
 
 
-    </div>
-  </ion-content>
+  <ion-card color="medium" class="ion-text-center ion-padding-vertical">
+
+    <ion-card-title class="ion-text-center">
+      <ion-label>
+        <h2>¡Bienvenid@!</h2>
+      </ion-label>
+    </ion-card-title>
+
+    <ion-card-content>
+      <ion-item color="medium">
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
+      </ion-item>
+      <ion-item color="medium">
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="block" (click)="ingresar()">Ingresar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-label>
+        <br>
+        <a [routerLink]="['/correo']">Recuperar Contraseña</a>
+      </ion-label>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
 </ion-content>

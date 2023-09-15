@@ -9,17 +9,16 @@
 <br>
 
 <ion-content class="background">
-
   <ion-item>
     <ion-label style="display: flex; justify-content: center; align-items: center;">
-      <h1 style="text-align: center;">Recupera Tu Contraseña</h1>
+      <h1 style="text-align: center;">Recupera tu contraseña</h1>
     </ion-label>
   </ion-item>
 
-  <div style="height: 90%; display: flex; align-items: center;
+  <div slot="fixed" style="height: 90%; display: flex; align-items: center;
       justify-content: center;">
 
-    <ion-card style="padding: 5%; width: 100%;" class="ion-text-center ion-padding-vertical ">
+    <ion-card color="medium" class="ion-text-center ion-padding-vertical">
 
       <ion-card-title class="ion-text-center">
         <ion-label>
@@ -34,9 +33,6 @@
         </ion-item>
         <br>
         <ion-row>
-          <ion-col size="6">
-
-          </ion-col>
           <ion-col size="6">
             <ion-button size="default" shape="block" (click)="preguntar()">Siguiente</ion-button>
           </ion-col>
