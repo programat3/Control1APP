@@ -8,15 +8,15 @@ import { Usuario } from 'src/app/model/Usuario';
   styleUrls: ['./pregunta.page.scss'],
 })
 export class PreguntaPage implements OnInit {
-  public usuario : Usuario;
+  public usuario: Usuario;
   public respuestaUsuario: string;
-  
-  constructor(private loadingController : LoadingController,
+
+  constructor(private loadingController: LoadingController,
     private route: ActivatedRoute,
-      private router: Router) { 
-        this.usuario = history.state['usuario'];
-        this.respuestaUsuario = ''
-      }
+    private router: Router) {
+    this.usuario = history.state['usuario'];
+    this.respuestaUsuario = ''
+  }
 
   ngOnInit() {
   }
@@ -25,7 +25,7 @@ export class PreguntaPage implements OnInit {
     if (this.validarUsuarioRespuesta(this.usuario) === false) {
       this.router.navigate(['/recuperar-fallido']);
     }
-    else{
+    else {
       const navigationExtras: NavigationExtras = {
         state: {
           usuario: this.usuario
@@ -33,14 +33,14 @@ export class PreguntaPage implements OnInit {
       };
       this.router.navigate(['/recuperar-exitoso'], navigationExtras);
     }
-    
+
   }
 
   public validarUsuarioRespuesta(usuario: Usuario): boolean {
-    if(this.usuario.respuestaSecreta === this.respuestaUsuario){
+    if (this.usuario.respuestaSecreta === this.respuestaUsuario) {
       return true
     }
-    else{
+    else {
       return false
     }
   }

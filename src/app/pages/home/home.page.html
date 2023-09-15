@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
+    <img src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
     <ion-title #titulo>
       Sistema de Asistencia Duoc UC
     </ion-title>
@@ -29,10 +29,8 @@
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
 
-  <ion-item>
-    <ion-label [routerLink]="['/login']" class="ion-activated"
-      style="display: flex; justify-content: center; align-items: center;">
-      Cerrar sesión
-    </ion-label>
-  </ion-item>
+  <ion-button [routerLink]="['/login']" expand="full" shape="round"
+    style="display: flex; justify-content: center; align-items: center;">
+    Cerrar sesión
+  </ion-button>
 </ion-content>
