@@ -27,9 +27,6 @@ export class LoginPage implements OnInit {
     if (!this.validarUsuario(this.usuario)) {
       return;
     }
-
-    this.mostrarMensaje('¡Bienvenid@!');
-
     const navigationExtras: NavigationExtras = {
       state: {
         usuario: this.usuario

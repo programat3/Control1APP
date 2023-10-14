@@ -1,37 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <img src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
+    <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
     <ion-title #titulo>
       Sistema de Asistencia Duoc UC
     </ion-title>
   </ion-toolbar>
 </ion-header>
 <br>
-<ion-content class="background">
+<div style="height: 740px">
+  <app-qr>
 
-  <ion-item>
-    <ion-label style="display: flex; justify-content: center; align-items: center;">
-      <h1 style="text-align: center;">¡Bienvenid@!</h1>
-    </ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>
-      <h2 #nombre style="text-align: center;">{{ usuario.nombre }}</h2>
-    </ion-label>
-  </ion-item>
-
-  <input hidden #fileinput id="input-file" type="file" accept="image/*;capture=camera"
-    (change)="verificarArchivoConQR($event)">
-  <ion-button (click)="comenzarEscaneoQR()" expand="full" shape="round">
-    <ion-icon slot="start" name="camera"></ion-icon>
-    Comenzar Escaneo QR
-  </ion-button>
-
-  <video #video [hidden]="!escaneando" width="100%"></video>
-  <canvas #canvas hidden></canvas>
-
-  <ion-button [routerLink]="['/login']" expand="full" shape="round"
-    style="display: flex; justify-content: center; align-items: center;">
-    Cerrar sesión
-  </ion-button>
-</ion-content>
+  </app-qr>
+</div>
