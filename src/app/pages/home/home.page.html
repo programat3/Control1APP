@@ -7,8 +7,34 @@
   </ion-toolbar>
 </ion-header>
 <br>
+<ion-header>
+  <ion-toolbar>
+    <ion-segment value="all">
+      <ion-segment-button value="qr">
+        <ion-label>QR</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="miClase">
+        <ion-label>Mi Clase</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="foro">
+        <ion-label>Foro</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="misDatos">
+        <ion-label>Mis Datos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
 <div style="height: 740px">
   <app-qr>
 
   </app-qr>
+</div>
+
+<div style="height: 740px">
+  <app-miclase>
+
+  </app-miclase>
 </div>

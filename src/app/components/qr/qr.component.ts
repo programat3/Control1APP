@@ -158,6 +158,9 @@ export class QrComponent  implements OnInit {
           console.log('escaneando...')
           requestAnimationFrame(this.verificarVideo.bind(this));
         }
+        else{
+          
+        }
       }
     } else {
       console.log('video aún no tiene datos');
