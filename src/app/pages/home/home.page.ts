@@ -100,7 +100,8 @@ export class HomePage implements OnInit, AfterViewInit {
         datos: objetoDatosQR
       }
     };
-    this.router.navigate(['/datos'], navigationExtras)
+    this.router.navigate(['/datos'], navigationExtras);
+    this.escaneando = false;
   }
 
   public verificarArchivoConQR(event: Event) {

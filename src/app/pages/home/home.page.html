@@ -26,6 +26,10 @@
     <ion-icon slot="start" name="camera"></ion-icon>
     Comenzar Escaneo QR
   </ion-button>
+  <ion-button (click)="detenerEscaneoQR()" expand="full" shape="round">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Detener Escaneo QR
+  </ion-button>
 
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
