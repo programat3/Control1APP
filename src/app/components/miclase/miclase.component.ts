@@ -54,12 +54,4 @@ export class MiclaseComponent  implements OnInit {
     animation.play()
   }
 
-  public home() {
-    this.router.navigate(['/home'])
-  }
-
-  public cerrar() {
-    this.router.navigate(['/login'])
-  }
-
 }

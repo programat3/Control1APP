@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { QrComponent } from 'src/app/components/qr/qr.component';
+import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { QrComponent } from 'src/app/components/qr/qr.component';
   ],
   declarations: [
     HomePage,
-    QrComponent
+    QrComponent,
+    MiclaseComponent
   ]
 })
 export class HomePageModule {}
