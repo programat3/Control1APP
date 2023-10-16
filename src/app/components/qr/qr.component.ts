@@ -1,9 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { ActivatedRoute, NavigationExtras, Router, UrlTree } from '@angular/router';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AnimationController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 import jsQR, { QRCode } from 'jsqr';
+import { HomePage } from 'src/app/pages/home/home.page';
 
 @Component({
   selector: 'app-qr',
@@ -39,6 +40,7 @@ export class QrComponent  implements OnInit {
   constructor(private loadingController: LoadingController,
     private route: ActivatedRoute,
     private router: Router,
+    private navCtrl: NavController,
     private animationController: AnimationController) {
     this.usuario = history.state['usuario'];
   }
@@ -96,11 +98,11 @@ export class QrComponent  implements OnInit {
     const objetoDatosQR = JSON.parse(datosQR);
     const navigationExtras: NavigationExtras = {
       state: {
-        datos: objetoDatosQR
+        data: objetoDatosQR
       }
     };
+    this.router.navigate(['/home'], navigationExtras);
     this.detenerEscaneoQR();
-    this.router.navigate(['/datos'], navigationExtras);
   }
 
   public verificarArchivoConQR(event: Event) {

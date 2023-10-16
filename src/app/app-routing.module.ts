@@ -30,10 +30,6 @@ const routes: Routes = [
   {
     path: 'recuperar-fallido',
     loadChildren: () => import('./pages/recuperar-fallido/recuperar-fallido.module').then(m => m.RecuperarFallidoPageModule)
-  },
-  {
-    path: 'datos',
-    loadChildren: () => import('./pages/datos/datos.module').then(m => m.DatosPageModule)
   }
 ];
 

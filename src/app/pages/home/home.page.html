@@ -5,11 +5,8 @@
       Sistema de Asistencia Duoc UC
     </ion-title>
   </ion-toolbar>
-</ion-header>
-<br>
-<ion-header>
   <ion-toolbar>
-    <ion-segment value="all">
+    <ion-segment [(ngModel)] = "selectTabs">
       <ion-segment-button value="qr">
         <ion-label>QR</ion-label>
       </ion-segment-button>
@@ -25,16 +22,25 @@
     </ion-segment>
   </ion-toolbar>
 </ion-header>
+  <div *ngIf = "selectTabs == 'qr'">
+    <app-qr>
+    </app-qr>
+  </div>
+  <div *ngIf = "selectTabs == 'miClase'">
+    <app-miclase> 
+    </app-miclase>
+  </div>
+  <div *ngIf = "selectTabs == 'foro'">
+    <app-foro>
+    </app-foro>
+  </div>
+  <div *ngIf = "selectTabs == 'misDatos'">
+    <app-mis-datos>
+    </app-mis-datos>
+  </div>
 
 
-<div style="height: 740px">
-  <app-qr>
+   
 
-  </app-qr>
-</div>
 
-<div style="height: 740px">
-  <app-miclase>
 
-  </app-miclase>
-</div>

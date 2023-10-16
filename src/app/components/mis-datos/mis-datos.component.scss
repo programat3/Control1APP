@@ -1,17 +1,7 @@
-ion-content.background {
+.fondo{
     --background: none;
     background-image: url('../../../assets/background.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
-
-table{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-tr{
-    display: flex;
-    justify-content: space-between;
 }

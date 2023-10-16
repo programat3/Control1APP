@@ -27,7 +27,7 @@ export class MiclaseComponent  implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private animationController: AnimationController) {
-    this.objetoDatosQR = history.state['datos'];
+    this.objetoDatosQR = history.state['data'];
   }
 
   ngOnInit() {
@@ -53,5 +53,6 @@ export class MiclaseComponent  implements OnInit {
       .fromTo('opacity', 0.2, 1);
     animation.play()
   }
+
 
 }

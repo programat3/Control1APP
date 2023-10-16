@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'; 
 
 @Component({
   selector: 'app-home',
@@ -7,8 +6,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage implements OnInit, AfterViewInit {
-
+export class HomePage implements OnInit, AfterViewInit { 
+  selectTabs = 'qr';
   constructor() {
   }
 
@@ -18,8 +17,6 @@ export class HomePage implements OnInit, AfterViewInit {
   public ngAfterViewInit(): void {
     
   }
-
-
 
 
 }
