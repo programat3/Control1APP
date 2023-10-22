@@ -14,13 +14,13 @@ export class LoginPage implements OnInit {
 
   constructor(private router: Router, private toastController: ToastController) {
     this.usuario = new Usuario('', '', '', '', '');
-    this.usuario.correo = '';
-    this.usuario.password = '';
+    this.usuario.correo = '1234';
+    this.usuario.password = 'atorres@duocuc.cl';
   }
 
   ngOnInit() {
-    this.usuario.correo = '';
-    this.usuario.password = '';
+    this.usuario.correo = 'atorres@duocuc.cl';
+    this.usuario.password = '1234';
   }
 
   public ingresar(): void {
