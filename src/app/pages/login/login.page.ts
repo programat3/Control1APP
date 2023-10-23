@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router'
-import { ToastController } from '@ionic/angular';
-import { Usuario } from 'src/app/model/Usuario';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { DataBaseService } from 'src/app/services/data-base.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,51 +11,20 @@ import { Usuario } from 'src/app/model/Usuario';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  public usuario: Usuario;
-
-  constructor(private router: Router, private toastController: ToastController) {
-    this.usuario = new Usuario('', '', '', '', '');
-    this.usuario.correo = '1234';
-    this.usuario.password = 'atorres@duocuc.cl';
+  correo  = "atorres@duocuc.cl";
+  password = "1234";
+  constructor(private bd: DataBaseService, private authService: AuthService) {
   }
 
-  ngOnInit() {
-    this.usuario.correo = 'atorres@duocuc.cl';
-    this.usuario.password = '1234';
+  async ngOnInit() {
+    this.bd.crearUsuariosDePrueba().then(async () => {
+      await this.bd.leerUsuarios();
+    });
   }
 
   public ingresar(): void {
-    if (!this.validarUsuario(this.usuario)) {
-      return;
-    }
-    const navigationExtras: NavigationExtras = {
-      state: {
-        usuario: this.usuario
-      }
-    };
-    this.router.navigate(['/home'], navigationExtras);
-  }
-
-  public validarUsuario(usuario: Usuario): boolean {
-    const usu = this.usuario.buscarUsuarioValido(
-      this.usuario.correo, this.usuario.password);
-    if (usu) {
-      this.usuario = usu
-      return true;
-    }
-    else {
-      this.mostrarMensaje('Credenciales Inválidas')
-      return false;
-    }
-  }
-
-  async mostrarMensaje(mensaje: string, duracion?: number) {
-    const toast = await this.toastController.create({
-      message: mensaje,
-      duration: duracion ? duracion : 2000
-    });
-    toast.present();
+    this.authService.login(
+      this.correo,this.password)
   }
 
 

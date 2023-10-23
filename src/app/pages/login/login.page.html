@@ -26,12 +26,11 @@
     <ion-card-content>
       <ion-item color="medium">
         <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="text" placeholder="Ingrese correo" [(ngModel)]="usuario.correo"></ion-input>
-
+        <ion-input [(ngModel)]="correo" type="text" placeholder="Ingrese correo"></ion-input>
       </ion-item>
       <ion-item color="medium">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" placeholder="Ingrese contraseña" [(ngModel)]="usuario.password"></ion-input>
+        <ion-input [(ngModel)]="password" type="password" placeholder="Ingrese contraseña"></ion-input>
       </ion-item>
       <ion-row>
         <ion-col size="12">

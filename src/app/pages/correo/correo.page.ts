@@ -9,41 +9,17 @@ import { Usuario } from 'src/app/model/Usuario';
   styleUrls: ['./correo.page.scss'],
 })
 export class CorreoPage implements OnInit {
-  public usuario: Usuario;
-
+  correo = "atorres@duocuc.cl";
+  password = '';
   constructor(private router: Router, private toastController: ToastController) {
-    this.usuario = new Usuario('', '', '', '', '');
-    this.usuario.correo = '';
-    this.usuario.password = '';
+    this.correo = '';
+    this.password = '';
   }
 
   ngOnInit() {
   }
 
   public preguntar(): void {
-    if (!this.validarUsuario(this.usuario)) {
-      return
-    }
-
-    const navigationExtras: NavigationExtras = {
-      state: {
-        usuario: this.usuario
-      }
-    };
-    this.router.navigate(['/pregunta'], navigationExtras);
-  }
-
-  public validarUsuario(usuario: Usuario): boolean {
-    const usu = this.usuario.buscarUsuarioCorreo(
-      this.usuario.correo);
-    if (usu) {
-      this.usuario = usu
-      return true;
-    }
-    else {
-      this.router.navigate(['/recuperar-fallido'])
-      return false
-    }
   }
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
