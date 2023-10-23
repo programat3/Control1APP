@@ -1,34 +1,54 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AnimationController, LoadingController, ToastController } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
+import { Usuario } from 'src/app/model/Usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { DataBaseService } from 'src/app/services/data-base.service';
+import { showAlertDUOC, showToast } from 'src/app/tools/message-routines';
 
 @Component({
   selector: 'app-mis-datos',
   templateUrl: './mis-datos.component.html',
   styleUrls: ['./mis-datos.component.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule],
 })
-export class MisDatosComponent implements OnInit {
+export class MisdatosComponent  implements OnInit {
 
-  @ViewChild('titulo', { read: ElementRef, static: true }) titulo!: ElementRef;
-  public objetoDatosQR;
-  public sede: number = 0;
-  public idAsignatura: number = 0;
-  public seccion: string = '';
-  public nombreAsignatura: string = '';
-  public nombreProfesor: string = '';
-  public dia: string = '';
-  public bloqueInicio: string = '';
-  public bloqueTermino: string = '';
-  public horaInicio: string = '';
-  public horaFin: string = '';
+  usuario = new Usuario();
+  repeticionPassword = '';
 
-  constructor(private loadingController: LoadingController,
-    private route: ActivatedRoute,
-    private router: Router,
-    private animationController: AnimationController) {
-    this.objetoDatosQR = history.state['data'];
+  constructor(private authService: AuthService, private bd: DataBaseService) { }
+
+  ngOnInit() {
+    this.authService.usuarioAutenticado.subscribe((usuario) => {
+      this.usuario = usuario? usuario : new Usuario();
+      this.repeticionPassword = usuario? usuario.password : '';
+    });
   }
 
-  ngOnInit() { }
+  validarCampo(nombreCampo:string, valor: string) {
+    if (valor.trim() === '') {
+      showAlertDUOC(`Debe ingresar un valor para el campo "${nombreCampo}".`);
+      return false;
+    }
+    return true;
+  }
+
+  async actualizarPerfil() {
+    if (!this.validarCampo('nombre', this.usuario.nombre)) return;
+    if (!this.validarCampo('correo', this.usuario.correo)) return;
+    if (!this.validarCampo('pregunta secreta', this.usuario.fraseSecreta)) return;
+    if (!this.validarCampo('respuesta secreta', this.usuario.respuestaSecreta)) return;
+    if (!this.validarCampo('contraseña', this.usuario.password)) return;
+    if (this.usuario.password !== this.repeticionPassword) {
+      showAlertDUOC(`Las contraseñas escritas deben ser iguales.`);
+      return;
+    }
+    await this.bd.guardarUsuario(this.usuario);
+    this.authService.guardarUsuarioAutenticado(this.usuario);
+    showToast('Sus datos fueron actualizados');
+  }
 
 }

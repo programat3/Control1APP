@@ -1,58 +1,31 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AnimationController, LoadingController, ToastController } from '@ionic/angular';
+import { AnimationController, IonicModule, LoadingController, ToastController } from '@ionic/angular';
+import { Asistencia } from 'src/app/model/asistencia';
+import { DataBaseService } from 'src/app/services/data-base.service';
+
 
 @Component({
   selector: 'app-miclase',
   templateUrl: './miclase.component.html',
   styleUrls: ['./miclase.component.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class MiclaseComponent  implements OnInit {
 
   @ViewChild('titulo', { read: ElementRef, static: true }) titulo!: ElementRef;
 
-  public objetoDatosQR;
-  public sede: number = 0;
-  public idAsignatura: number = 0;
-  public seccion: string = '';
-  public nombreAsignatura: string = '';
-  public nombreProfesor: string = '';
-  public dia: string = '';
-  public bloqueInicio: string = '';
-  public bloqueTermino: string = '';
-  public horaInicio: string = '';
-  public horaFin: string = '';
+  asistencia= new Asistencia();
 
-  constructor(private loadingController: LoadingController,
-    private route: ActivatedRoute,
-    private router: Router,
-    private animationController: AnimationController) {
-    this.objetoDatosQR = history.state['data'];
-  }
+  constructor(private bd: DataBaseService) { }
 
   ngOnInit() {
-    this.sede = this.objetoDatosQR.sede;
-    this.idAsignatura = this.objetoDatosQR.idAsignatura;
-    this.seccion = this.objetoDatosQR.seccion;
-    this.nombreAsignatura = this.objetoDatosQR.nombreAsignatura;
-    this.nombreProfesor = this.objetoDatosQR.nombreProfesor;
-    this.dia = this.objetoDatosQR.dia;
-    this.bloqueInicio = this.objetoDatosQR.bloqueInicio;
-    this.bloqueTermino = this.objetoDatosQR.bloqueTermino;
-    this.horaInicio = this.objetoDatosQR.horaInicio;
-    this.horaFin = this.objetoDatosQR.horaFin;
+    this.bd.datosQR.subscribe((datosQR) => {
+      this.asistencia = new Asistencia().obtenerAsistenciaDesdeQR(datosQR);
+    });
   }
-
-  public ngAfterViewInit(): void {
-    const animation = this.animationController
-      .create()
-      .addElement(this.titulo.nativeElement)
-      .iterations(Infinity)
-      .duration(6000)
-      .fromTo('transform', 'translate(-100%)', 'translate(100%)')
-      .fromTo('opacity', 0.2, 1);
-    animation.play()
-  }
-
 
 }

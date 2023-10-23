@@ -11,9 +11,7 @@
     </ion-label>
   </ion-item>
 
-  <input hidden #fileinput id="input-file" type="file" accept="image/*;capture=camera"
-    (change)="verificarArchivoConQR($event)">
-  <ion-button (click)="comenzarEscaneoQR()" expand="full" shape="round">
+  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
     <ion-icon slot="start" name="camera"></ion-icon>
     Comenzar Escaneo QR
   </ion-button>
@@ -21,10 +19,5 @@
   <video #video [hidden]="!escaneando" width="100%"></video>
   <canvas #canvas hidden></canvas>
 
-  <ion-button [routerLink]="['/login']" expand="full" shape="round"
-    style="display: flex; justify-content: center; align-items: center;">
-    Cerrar sesión
-  </ion-button>
 
 </div>
-  

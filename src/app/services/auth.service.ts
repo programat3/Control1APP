@@ -49,17 +49,17 @@ export class AuthService {
       if (usuarioAutenticado) {
         this.usuarioAutenticado.next(usuarioAutenticado);
         this.primerInicioSesion.next(false);
-        this.router.navigate(['inicio']);
+        this.router.navigate(['home']);
       } else {
         await this.bd.validarUsuario(correo, password).then(async (usuario: Usuario | undefined) => {
           if (usuario) {
             showToast(`¡Bienvenido ${usuario.nombre}!`);
             this.guardarUsuarioAutenticado(usuario);
             this.primerInicioSesion.next(true);
-            this.router.navigate(['inicio']);
+            this.router.navigate(['home']);
           } else {
             showToast(`El correo o la password son incorrectos`);
-            this.router.navigate(['ingreso']);
+            this.router.navigate(['login']);
           }
         })
       }

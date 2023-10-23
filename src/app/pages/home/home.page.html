@@ -21,23 +21,24 @@
         <ion-label class="titulo_componentes">Mis Datos</ion-label>
       </ion-segment-button>
 
-      <!-- Se usó la clase "titulo_componentes" para hacer las letras de los componentes más pequeñas-->
     </ion-segment>
   </ion-toolbar>
 </ion-header>
-<div *ngIf="selectTabs == 'qr'">
-  <app-qr>
-  </app-qr>
-</div>
-<div *ngIf="selectTabs == 'miClase'">
-  <app-miclase>
-  </app-miclase>
-</div>
-<div *ngIf="selectTabs == 'foro'">
-  <app-foro>
-  </app-foro>
-</div>
-<div *ngIf="selectTabs == 'misDatos'">
-  <app-mis-datos>
-  </app-mis-datos>
-</div>
+<ion-content>
+  <div *ngIf="selectTabs == 'qr'">
+    <app-qr>
+    </app-qr>
+  </div>
+  <div *ngIf="selectTabs == 'miClase'">
+    <app-miclase>
+    </app-miclase>
+  </div>
+  <div *ngIf="selectTabs == 'foro'">
+    <app-foro>
+    </app-foro>
+  </div>
+  <div *ngIf="selectTabs == 'misDatos'">
+    <app-mis-datos>
+    </app-mis-datos>
+  </div>
+</ion-content>
