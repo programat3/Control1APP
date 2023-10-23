@@ -7,15 +7,25 @@ const config: CapacitorConfig = {
   server: {
     androidScheme: 'https'
   },
-  cordova: {
-    preferences: {
-      ScrollEnabled: 'false',
-      BackupWebStorage: 'none',
-      SplashMaintainAspectRatio: 'true',
-      FadeSplashScreenDuration: '300',
-      SplashShowOnlyFirstTime: 'false',
-      SplashScreen: 'screen',
-      SplashScreenDelay: '3000'
+  plugins:{
+    CapacitorSQLite:{
+      iosDatabaseLocation: 'Library/CapacitorDatabase',
+      iosIsEncryption: false,
+      iosKeychainPrefix: 'YOUR_APP_NAME',
+      iosBiometric:{
+        biometricAuth: false,
+        biometricTitle: "Biometric login for capacitor sqlite"
+      },
+      androidIsEncryption: false,
+      androidBiometric:{
+        biometricAuth:false,
+        biometricTitle: "Biometruc login for capacitor sqlite",
+        biometricSubTitle: "Log in using your biometric"
+      },
+      electronIsEncryption:false,
+      electronWindowLocation: "C:\\ProgramData\\CapacitorDataBases",
+      electronMacLocation:"/Volumes/Development_Lacie/Development/Databases",
+      electronLinuxLocation: "Databases"
     }
   }
 };
