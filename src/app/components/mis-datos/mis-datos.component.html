@@ -1,0 +1,32 @@
+<ion-card>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating" disabled="true"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta" labelPlacement="floating"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta" labelPlacement="floating"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="password" [(ngModel)]="usuario.password" label="Contraseña" labelPlacement="floating"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-input type="password" [(ngModel)]="repeticionPassword" label="Repetir contraseña" labelPlacement="floating"></ion-input>
+  </ion-item>
+  
+  <br>
+  <div class="centrar-boton">
+    <ion-button (click)="actualizarPerfil()">
+      Actualizar mis datos
+    </ion-button>
+    </div>
+</ion-card>
