@@ -15,7 +15,7 @@ import { showAlertDUOC, showToast } from 'src/app/tools/message-routines';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
 })
-export class ForoComponent  implements OnInit {
+export class ForoComponent implements OnInit {
 
   @ViewChild("topOfPage") topOfPage!: ElementRef;
 
@@ -27,16 +27,17 @@ export class ForoComponent  implements OnInit {
 
   ngOnInit() {
     this.api.listaPublicaciones.subscribe((publicaciones) => {
-      publicaciones.reverse(); // Ordenar de más nueva a mán antigua
+      publicaciones.reverse(); // Ordenar de más reciente a mán antigua
       this.publicaciones = publicaciones;
     });
     this.authService.usuarioAutenticado.subscribe(usuario => {
-      this.usuario = usuario? usuario : new Usuario();
+      this.usuario = usuario ? usuario : new Usuario();
+      //Si se detecta un usuario autenticado, se llenará la variable Usuario con el usuario que ingrese
     });
     this.limpiarPublicacion();
   }
 
-  setPublicacion(id: string, correo: string, nombre: string, apellido: string, titulo: string, contenido: string) {
+  setPublicacion(id: string, correo: string, nombre: string, titulo: string, contenido: string) {
     this.publicacion.id = id;
     this.publicacion.correo = correo;
     this.publicacion.nombre = nombre;
@@ -45,7 +46,7 @@ export class ForoComponent  implements OnInit {
   }
 
   limpiarPublicacion() {
-    this.setPublicacion('', '', '', '', '', '');
+    this.setPublicacion('', '', '', '', '');
     this.api.cargarPublicaciones();
   }
 
@@ -71,8 +72,8 @@ export class ForoComponent  implements OnInit {
       showAlertDUOC('Sólo puede editar las publicaciones a su nombre');
       return;
     }
-    this.setPublicacion(pub.id, pub.correo, pub.nombre, pub.apellido, pub.titulo, pub.contenido);
-    this.topOfPage.nativeElement.scrollIntoView({block: 'end', behavior: 'smooth'});
+    this.setPublicacion(pub.id, pub.correo, pub.nombre, pub.titulo, pub.contenido);
+    this.topOfPage.nativeElement.scrollIntoView({ block: 'end', behavior: 'smooth' });
   }
 
   mensajePublicacion(accion: string, id: Publicacion) {
