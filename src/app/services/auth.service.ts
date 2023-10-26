@@ -15,7 +15,7 @@ export class AuthService {
   usuarioAutenticado = new BehaviorSubject<Usuario | null>(null);
   primerInicioSesion = new BehaviorSubject<boolean>(false);
 
-  constructor(private router: Router, private bd: DataBaseService, private storage: Storage) { 
+  constructor(private router: Router, private bd: DataBaseService, private storage: Storage) {
     this.inicializarAutenticacion();
   }
 
@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   async login(correo: string, password: string) {
-    await this.storage.get(this.keyUsuario).then( async (usuarioAutenticado) => {
+    await this.storage.get(this.keyUsuario).then(async (usuarioAutenticado) => {
       if (usuarioAutenticado) {
         this.usuarioAutenticado.next(usuarioAutenticado);
         this.primerInicioSesion.next(false);
@@ -76,4 +76,11 @@ export class AuthService {
     });
   }
 
+  async verificarRespuestaSecreta(correo: string, respuesta: string): Promise<boolean> {
+    const usuario = await this.bd.leerUsuario(correo);
+    if (usuario && usuario.respuestaSecreta === respuesta) {
+      return true; // Respuesta correcta
+    }
+    return false; // Respuesta incorrecta
+  }
 }

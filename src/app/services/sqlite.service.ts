@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
-import { 
+import {
   CapacitorSQLite,
   SQLiteConnection,
   SQLiteDBConnection,
@@ -18,12 +18,12 @@ export class SqliteService {
   platform!: string;
   sqlitePlugin!: CapacitorSQLitePlugin;
   native: boolean = false;
-  
+
   constructor() { }
 
   async inicializarPlugin(): Promise<boolean> {
     this.platform = Capacitor.getPlatform();
-    if(this.platform === 'ios' || this.platform === 'android') this.native = true;
+    if (this.platform === 'ios' || this.platform === 'android') this.native = true;
     this.sqlitePlugin = CapacitorSQLite;
     this.sqliteConnection = new SQLiteConnection(this.sqlitePlugin);
     this.isService = true;
@@ -33,19 +33,18 @@ export class SqliteService {
   async inicializarAlmacenamientoWeb(): Promise<void> {
     try {
       await this.sqliteConnection.initWebStore();
-    } catch(err: any) {
+    } catch (err: any) {
       const msg = err.message ? err.message : err;
       return Promise.reject(`initWebStore: ${err}`);
     }
   }
 
   async abrirBaseDeDatos(dbName: string, encrypted: boolean, mode: string,
-    version: number, readonly: boolean): Promise<SQLiteDBConnection> 
-  {
+    version: number, readonly: boolean): Promise<SQLiteDBConnection> {
     let db: SQLiteDBConnection;
     const retCC = (await this.sqliteConnection.checkConnectionsConsistency()).result;
     let isConn = (await this.sqliteConnection.isConnection(dbName, readonly)).result;
-    if(retCC && isConn) {
+    if (retCC && isConn) {
       db = await this.sqliteConnection.retrieveConnection(dbName, readonly);
     } else {
       db = await this.sqliteConnection.createConnection(dbName, encrypted, mode, version, readonly);
@@ -58,7 +57,7 @@ export class SqliteService {
     return await this.sqliteConnection.retrieveConnection(dbName, readonly);
   }
 
-  async cerrarConexion(database:string, readonly?: boolean): Promise<void> {
+  async cerrarConexion(database: string, readonly?: boolean): Promise<void> {
     const readOnly = readonly ? readonly : false;
     return await this.sqliteConnection.closeConnection(database, readOnly);
   }
@@ -67,7 +66,7 @@ export class SqliteService {
     return await this.sqlitePlugin.addUpgradeStatement(options);
   }
 
-  async guardarNombreBaseDeDatos(nombreBD: string) : Promise<void> {
+  async guardarNombreBaseDeDatos(nombreBD: string): Promise<void> {
     return await this.sqliteConnection.saveToStore(nombreBD);
   }
 
