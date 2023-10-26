@@ -1,60 +1,58 @@
-export class Usuario{
+export class Usuario {
     public correo = '';
     public password = '';
     public nombre = '';
     public fraseSecreta = '';
     public respuestaSecreta = '';
 
-    constructor(){}
+    constructor() { }
     setUsuario(correo: string, password: string, nombre: string, preguntaSecreta: string, respuestaSecreta: string) {
-    this.correo = correo;
-    this.password = password;
-    this.nombre = nombre;
-    this.fraseSecreta = preguntaSecreta;
-    this.respuestaSecreta = respuestaSecreta;
+        this.correo = correo;
+        this.password = password;
+        this.nombre = nombre;
+        this.fraseSecreta = preguntaSecreta;
+        this.respuestaSecreta = respuestaSecreta;
     }
     static getUsuario(correo: string, password: string, nombre: string, preguntaSecreta: string, respuestaSecreta: string) {
         const usu = new Usuario();
         usu.setUsuario(correo, password, nombre, preguntaSecreta, respuestaSecreta)
         return usu;
-      }
+    }
 
     validarCampoRequerido(nombreCampo: string, valor: string) {
-    if (valor.trim() === '') return `El campo "${nombreCampo}" debe tener un valor.`;
-    return '';
+        if (valor.trim() === '') return `El campo "${nombreCampo}" debe tener un valor.`;
+        return '';
     }
 
     validarCorreo(correo: string): string {
-    return this.validarCampoRequerido('correo', correo);
+        return this.validarCampoRequerido('correo', correo);
     }
 
     validarPassword(password: string): string {
-    return this.validarCampoRequerido('contraseña', password);
+        return this.validarCampoRequerido('contraseña', password);
     }
 
     validarNombre(nombre: string): string {
-    return this.validarCampoRequerido('nombre', nombre);
+        return this.validarCampoRequerido('nombre', nombre);
     }
 
     validarApellido(apellido: string): string {
-    return this.validarCampoRequerido('apellido', apellido);
+        return this.validarCampoRequerido('apellido', apellido);
     }
 
-    validarPreguntaSecreta(preguntaSecreta: string): string {
-    return this.validarCampoRequerido('pregunta secreta', preguntaSecreta);
+    validarPreguntaSecreta(fraseSecreta: string): string {
+        return this.validarCampoRequerido('pregunta secreta', fraseSecreta);
     }
 
     validarRespuestaSecreta(respuestaSecreta: string): string {
-    return this.validarCampoRequerido('respuesta secreta', respuestaSecreta);
+        return this.validarCampoRequerido('respuesta secreta', respuestaSecreta);
     }
 
-    validarPropiedadesUsuario(correo: string, password: string, nombre: string, apellido: string
-    , preguntaSecreta: string, respuestaSecreta: string): string {
-    return this.validarCorreo(correo) 
-        || this.validarPassword(password)
-        || this.validarNombre(nombre)
-        || this.validarApellido(apellido)
-        || this.validarPreguntaSecreta(preguntaSecreta)
-        || this.validarRespuestaSecreta(respuestaSecreta)
+    validarPropiedadesUsuario(correo: string, password: string, nombre: string, fraseSecreta: string, respuestaSecreta: string): string {
+        return this.validarCorreo(correo)
+            || this.validarPassword(password)
+            || this.validarNombre(nombre)
+            || this.validarPreguntaSecreta(fraseSecreta)
+            || this.validarRespuestaSecreta(respuestaSecreta)
     }
 }

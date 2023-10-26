@@ -2,6 +2,6 @@
 
 npm install -g json-server
 
-2. Para ejecutar json-server:
+2. Para ejecutar NUESTRO json-server:
 
-json-server --watch publicaciones.json
+json-server --watch _JSON-SERVER/publicaciones.json

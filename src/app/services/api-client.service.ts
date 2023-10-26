@@ -16,7 +16,7 @@ export class ApiClientService {
     })
   };
 
-  listaPublicaciones: BehaviorSubject<Publicacion[]> =  new BehaviorSubject<Publicacion[]>([]);
+  listaPublicaciones: BehaviorSubject<Publicacion[]> = new BehaviorSubject<Publicacion[]>([]);
   apiUrl = 'http://localhost:3000';
   //apiUrl = 'http://192.168.100.34:3000';
 
