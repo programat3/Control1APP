@@ -8,13 +8,16 @@ import { CorreoPageRoutingModule } from './correo-routing.module';
 
 import { CorreoPage } from './correo.page';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CorreoPageRoutingModule
+    CorreoPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [CorreoPage]
 })
-export class CorreoPageModule {}
+export class CorreoPageModule { }
