@@ -29,7 +29,6 @@ export class CorreoPage implements OnInit {
     if (usu){
       const navigationExtras: NavigationExtras = {
         state: {
-          correo: this.correo,
           usuario: usu
         }
       };

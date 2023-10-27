@@ -17,7 +17,7 @@ export class DataBaseService {
           correo TEXT PRIMARY KEY NOT NULL,
           password TEXT NOT NULL,
           nombre TEXT NOT NULL,
-          preguntaSecreta TEXT NOT NULL,
+          fraseSecreta TEXT NOT NULL,
           respuestaSecreta TEXT NOT NULL
         );
       `]

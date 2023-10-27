@@ -76,11 +76,15 @@ export class AuthService {
     });
   }
 
-  async verificarRespuestaSecreta(correo: string, respuesta: string): Promise<boolean> {
+  async verificarRespuestaSecreta(correo: string, respuesta: string): Promise<Usuario|undefined> {
     const usuario = await this.bd.leerUsuario(correo);
-    if (usuario && usuario.respuestaSecreta === respuesta) {
-      return true; // Respuesta correcta
+    if ((usuario) && (usuario.respuestaSecreta === respuesta)) {
+      return usuario; // Respuesta correcta
     }
-    return false; // Respuesta incorrecta
+    else{
+      console.log("Holis");
+      return undefined; // Respuesta incorrecta
+    }
+    
   }
 }

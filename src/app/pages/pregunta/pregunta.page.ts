@@ -13,10 +13,10 @@ export class PreguntaPage implements OnInit {
   respuestaUsuario = "";
   correo = "";
   usuario : Usuario;
-
+  fraseSecreta = "123";
   constructor(private router: Router,private bd: DataBaseService, private authService: AuthService){
-    this.correo = history.state['correo'];
     this.usuario = history.state['usuario'];
+
   }
 
   ngOnInit() {
@@ -26,12 +26,17 @@ export class PreguntaPage implements OnInit {
   }
 
   async redirigir(){
-    const response = await this.authService.verificarRespuestaSecreta(this.correo,this.respuestaUsuario);
-    if (response) {
+    const response = await this.authService.verificarRespuestaSecreta(this.usuario.correo,this.respuestaUsuario);
+    if (!response) {
       this.router.navigate(['/recuperar-fallido']);
     }
     else {
-      this.router.navigate(['/recuperar-exitoso']);
+      const navigationExtras: NavigationExtras = {
+        state: {
+          usuario: response
+        }
+      };
+      this.router.navigate(['/recuperar-exitoso'], navigationExtras);
     }
 
   }
