@@ -10,4 +10,11 @@ ion-content.background {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
+
+.centrado {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
