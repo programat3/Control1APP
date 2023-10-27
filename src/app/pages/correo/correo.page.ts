@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router'
 import { ToastController } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-correo',
@@ -11,18 +9,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./correo.page.scss'],
 })
 export class CorreoPage implements OnInit {
-  correo = new FormControl('');
-  constructor(private authSvc: AuthService, private router: Router, private toastController: ToastController) {
+  correo = "atorres@duocuc.cl";
+  password = '';
+  constructor(private router: Router, private toastController: ToastController) {
+    this.correo = '';
+    this.password = '';
   }
 
   ngOnInit() {
   }
 
-  public preguntar() {
-    const correo = this.correo.value;
-    this.authSvc.verificarRespuestaSecreta;
-    console.log('Funciona el botón')
-    this.router.navigate(['/recuperar-exitoso'])
+  public preguntar(): void {
   }
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
