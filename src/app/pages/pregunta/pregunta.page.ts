@@ -1,48 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { AnimationController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 import { Usuario } from 'src/app/model/Usuario';
+import { DataBaseService } from 'src/app/services/data-base.service';
 @Component({
   selector: 'app-pregunta',
   templateUrl: './pregunta.page.html',
   styleUrls: ['./pregunta.page.scss'],
 })
 export class PreguntaPage implements OnInit {
-  public usuario: Usuario;
-  public respuestaUsuario: string;
+  respuestaUsuario = "";
+  correo = "";
+  usuario : Usuario;
 
-  constructor(private loadingController: LoadingController,
-    private route: ActivatedRoute,
-    private router: Router) {
+  constructor(private router: Router,private bd: DataBaseService, private authService: AuthService){
+    this.correo = history.state['correo'];
     this.usuario = history.state['usuario'];
-    this.respuestaUsuario = ''
   }
 
   ngOnInit() {
+    this.bd.crearUsuariosDePrueba().then(async () => {
+      await this.bd.leerUsuarios();
+    });
   }
 
-  public redirigir(): void {
-    if (this.validarUsuarioRespuesta(this.usuario) === false) {
+  async redirigir(){
+    const response = await this.authService.verificarRespuestaSecreta(this.correo,this.respuestaUsuario);
+    if (response) {
       this.router.navigate(['/recuperar-fallido']);
     }
     else {
-      const navigationExtras: NavigationExtras = {
-        state: {
-          usuario: this.usuario
-        }
-      };
-      this.router.navigate(['/recuperar-exitoso'], navigationExtras);
+      this.router.navigate(['/recuperar-exitoso']);
     }
 
-  }
-
-  public validarUsuarioRespuesta(usuario: Usuario): boolean {
-    if (this.usuario.respuestaSecreta === this.respuestaUsuario) {
-      return true
-    }
-    else {
-      return false
-    }
   }
 
 }

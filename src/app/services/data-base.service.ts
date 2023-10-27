@@ -17,7 +17,7 @@ export class DataBaseService {
           correo TEXT PRIMARY KEY NOT NULL,
           password TEXT NOT NULL,
           nombre TEXT NOT NULL,
-          fraseSecreta TEXT NOT NULL,
+          preguntaSecreta TEXT NOT NULL,
           respuestaSecreta TEXT NOT NULL
         );
       `]
@@ -50,7 +50,7 @@ export class DataBaseService {
 
   async guardarUsuario(usuario: Usuario) {
     const sql = 'INSERT OR REPLACE INTO USUARIO (correo, password, nombre,' +
-      'fraseSecreta, respuestaSecreta) VALUES (?,?,?,?,?);';
+      'preguntaSecreta, respuestaSecreta) VALUES (?,?,?,?,?);';
     await this.db.run(sql, [usuario.correo, usuario.password, usuario.nombre, 
       usuario.fraseSecreta, usuario.respuestaSecreta]);
     await this.leerUsuarios();
