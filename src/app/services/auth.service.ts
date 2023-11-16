@@ -72,19 +72,19 @@ export class AuthService {
         showToast(`¡Hasta pronto ${usuario.nombre}!`);
         this.eliminarUsuarioAutenticado(usuario);
       }
-      this.router.navigate(['ingreso']);
+      this.router.navigate(['login']);
     });
   }
 
-  async verificarRespuestaSecreta(correo: string, respuesta: string): Promise<Usuario|undefined> {
+  async verificarRespuestaSecreta(correo: string, respuesta: string): Promise<Usuario | undefined> {
     const usuario = await this.bd.leerUsuario(correo);
     if ((usuario) && (usuario.respuestaSecreta === respuesta)) {
       return usuario; // Respuesta correcta
     }
-    else{
+    else {
       console.log("Holis");
       return undefined; // Respuesta incorrecta
     }
-    
+
   }
 }

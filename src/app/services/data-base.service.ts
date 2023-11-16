@@ -24,7 +24,7 @@ export class DataBaseService {
     }
   ]
 
-  nombreBD = 'asistencia1';
+  nombreBD = 'asistencia2';
   db!: SQLiteDBConnection;
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
   datosQR: BehaviorSubject<string> = new BehaviorSubject('');
@@ -32,7 +32,7 @@ export class DataBaseService {
   constructor(private sqliteService: SqliteService) { }
 
   async inicializarBaseDeDatos() {
-    await this.sqliteService.crearBaseDeDatos({database: this.nombreBD, upgrade: this.userUpgrades});
+    await this.sqliteService.crearBaseDeDatos({ database: this.nombreBD, upgrade: this.userUpgrades });
     this.db = await this.sqliteService.abrirBaseDeDatos(this.nombreBD, false, 'no-encryption', 1, false);
   }
 
@@ -50,9 +50,9 @@ export class DataBaseService {
 
   async guardarUsuario(usuario: Usuario) {
     const sql = 'INSERT OR REPLACE INTO USUARIO (correo, password, nombre,' +
-      'preguntaSecreta, respuestaSecreta) VALUES (?,?,?,?,?);';
-    await this.db.run(sql, [usuario.correo, usuario.password, usuario.nombre, 
-      usuario.fraseSecreta, usuario.respuestaSecreta]);
+      'fraseSecreta, respuestaSecreta) VALUES (?,?,?,?,?);';
+    await this.db.run(sql, [usuario.correo, usuario.password, usuario.nombre,
+    usuario.fraseSecreta, usuario.respuestaSecreta]);
     await this.leerUsuarios();
   }
 
@@ -65,7 +65,7 @@ export class DataBaseService {
     const usuarios: Usuario[] = (await this.db.query('SELECT * FROM USUARIO WHERE correo=?;', [correo])).values as Usuario[];
     return usuarios[0];
   }
-  
+
   async eliminarUsuarioUsandoCorreo(correo: string) {
     await this.db.run('DELETE FROM USUARIO WHERE correo=?', [correo]);
     await this.leerUsuarios();

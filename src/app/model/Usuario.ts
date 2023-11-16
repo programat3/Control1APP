@@ -6,16 +6,16 @@ export class Usuario {
     public respuestaSecreta = '';
 
     constructor() { }
-    setUsuario(correo: string, password: string, nombre: string, preguntaSecreta: string, respuestaSecreta: string) {
+    setUsuario(correo: string, password: string, nombre: string, fraseSecreta: string, respuestaSecreta: string) {
         this.correo = correo;
         this.password = password;
         this.nombre = nombre;
-        this.fraseSecreta = preguntaSecreta;
+        this.fraseSecreta = fraseSecreta;
         this.respuestaSecreta = respuestaSecreta;
     }
-    static getUsuario(correo: string, password: string, nombre: string, preguntaSecreta: string, respuestaSecreta: string) {
+    static getUsuario(correo: string, password: string, nombre: string, fraseSecreta: string, respuestaSecreta: string) {
         const usu = new Usuario();
-        usu.setUsuario(correo, password, nombre, preguntaSecreta, respuestaSecreta)
+        usu.setUsuario(correo, password, nombre, fraseSecreta, respuestaSecreta)
         return usu;
     }
 

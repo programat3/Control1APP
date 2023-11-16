@@ -22,7 +22,7 @@ import { MessageEnum } from 'src/app/tools/message-enum';
   imports: [IonicModule, CommonModule, FormsModule],
   standalone: true
 })
-export class QrComponent  implements OnInit {
+export class QrComponent implements OnInit {
 
   @ViewChild('video') private video!: ElementRef;
   @ViewChild('canvas') private canvas!: ElementRef;
@@ -45,7 +45,7 @@ export class QrComponent  implements OnInit {
   ngOnInit() {
     this.plataforma = this.sqliteService.platform;
     this.authService.usuarioAutenticado.subscribe((usuario) => {
-      this.usuario = usuario? usuario : new Usuario();
+      this.usuario = usuario ? usuario : new Usuario();
     });
   }
 
@@ -63,7 +63,7 @@ export class QrComponent  implements OnInit {
 
   public async comenzarEscaneoQRWeb() {
     const mediaProvider: MediaProvider = await navigator.mediaDevices.getUserMedia({
-      video: {facingMode: 'environment'}
+      video: { facingMode: 'environment' }
     });
     this.video.nativeElement.srcObject = mediaProvider;
     this.video.nativeElement.setAttribute('playsinline', 'true');
@@ -89,7 +89,7 @@ export class QrComponent  implements OnInit {
     const context: CanvasRenderingContext2D = this.canvas.nativeElement.getContext('2d');
     context.drawImage(this.video.nativeElement, 0, 0, w, h);
     const img: ImageData = context.getImageData(0, 0, w, h);
-    let qrCode: QRCode  | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
+    let qrCode: QRCode | null = jsQR(img.data, w, h, { inversionAttempts: 'dontInvert' });
     if (qrCode) {
       const data = qrCode.data;
       if (data !== '') {
@@ -146,7 +146,7 @@ export class QrComponent  implements OnInit {
       if (status.camera === 'denied') {
         status = await BarcodeScanner.requestPermissions();
       }
-      
+
       if (status.camera === 'denied') {
         const resp = await showAlertYesNoDUOC('No fue posible otorgar permisos a la cámara. ¿Quiere '
           + 'acceder a las opciones de configuración de la aplicación y darle permiso manualmente?');
@@ -162,10 +162,10 @@ export class QrComponent  implements OnInit {
         });
       });
 
-      const { barcodes }: ScanResult = await BarcodeScanner.scan({ formats: [BarcodeFormat.QrCode],});
+      const { barcodes }: ScanResult = await BarcodeScanner.scan({ formats: [BarcodeFormat.QrCode], });
       return Promise.resolve(barcodes[0].displayValue);
-      
-    } catch(error: any) {
+
+    } catch (error: any) {
       if (error.message.includes('canceled')) return Promise.resolve('');
       console.log('ERROR EN escanearQRNativo CATCH ' + error.message);
       return Promise.resolve('ERROR: No fue posible leer el código QR');

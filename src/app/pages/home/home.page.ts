@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'; 
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ForoComponent } from 'src/app/components/foro/foro.component';
 import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
 import { MisdatosComponent } from 'src/app/components/mis-datos/mis-datos.component';
 import { QrComponent } from 'src/app/components/qr/qr.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -13,20 +14,28 @@ import { QrComponent } from 'src/app/components/qr/qr.component';
   styleUrls: ['./home.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule,
-  QrComponent, MiclaseComponent, ForoComponent, MisdatosComponent]
+    QrComponent, MiclaseComponent, ForoComponent, MisdatosComponent]
 })
 
-export class HomePage implements OnInit, AfterViewInit { 
+export class HomePage implements OnInit, AfterViewInit {
   selectTabs = 'qr';
-  constructor() {
+  constructor(private auth: AuthService) {
   }
 
   ngOnInit(): void {
   }
 
   public ngAfterViewInit(): void {
-    
+
   }
 
+  async cerrarSesion() {
+    this.auth.logout();
+  }
+
+  public irMiClase() {
+    this.selectTabs = 'miClase';
+
+  }
 
 }
