@@ -3,3 +3,7 @@
     white-space: normal;
     // White space es para que el texto se ajuste al contenedor
 }
+
+ion-content {
+    --background: url('../../../assets/background.jpg') no-repeat center/cover fixed;
+}
