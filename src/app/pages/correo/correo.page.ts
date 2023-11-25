@@ -26,7 +26,7 @@ export class CorreoPage implements OnInit {
 
   async preguntar() {
     const usu = await this.bd.leerUsuario(this.correo);
-    if (usu){
+    if (usu) {
       const navigationExtras: NavigationExtras = {
         state: {
           usuario: usu
@@ -34,10 +34,10 @@ export class CorreoPage implements OnInit {
       };
       this.router.navigate(['/pregunta'], navigationExtras);
     }
-    else{
+    else {
       this.router.navigate(['/recuperar-fallido']);
     }
-    
+
   }
 
   async mostrarMensaje(mensaje: string, duracion?: number) {
@@ -48,6 +48,9 @@ export class CorreoPage implements OnInit {
     toast.present();
   }
 
+  volverLogin() {
+    this.router.navigate(['/login'])
+  }
 
 }
 

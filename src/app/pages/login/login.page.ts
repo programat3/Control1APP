@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  correo  = "atorres@duocuc.cl";
+  correo = "atorres@duocuc.cl";
   password = "1234";
-  constructor(private bd: DataBaseService, private authService: AuthService) {
+  constructor(private bd: DataBaseService, private router: Router, private authService: AuthService) {
   }
 
   async ngOnInit() {
@@ -24,7 +25,11 @@ export class LoginPage implements OnInit {
 
   public ingresar(): void {
     this.authService.login(
-      this.correo,this.password)
+      this.correo, this.password)
+  }
+
+  volverLogin() {
+    this.router.navigate(['/login'])
   }
 
 

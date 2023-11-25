@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
     <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
-    <ion-title #titulo>
+    <ion-title>
       Sistema de Asistencia Duoc UC
     </ion-title>
   </ion-toolbar>
@@ -29,10 +29,20 @@
       <ion-col size="12" class="ion-text-center">
         <ion-button (click)="volver()">
           <ion-icon name="arrow-undo-outline"></ion-icon>
-          Volver
+          Volver al inicio
         </ion-button>
       </ion-col>
     </ion-row>
-
   </ion-card>
 </ion-content>
+
+
+<ion-footer>
+  <ng-container>
+    <ion-list style="text-align:center">
+      <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
+        Volver
+      </ion-button>
+    </ion-list>
+  </ng-container>
+</ion-footer>

@@ -10,19 +10,23 @@ import { Usuario } from 'src/app/model/Usuario';
 })
 export class RecuperarExitosoPage implements OnInit {
 
-  public usuario : Usuario;
+  public usuario: Usuario;
 
-  constructor(private loadingController : LoadingController,
+  constructor(private loadingController: LoadingController,
     private route: ActivatedRoute,
-      private router: Router) { 
-        this.usuario = history.state['usuario'];
-      }
+    private router: Router) {
+    this.usuario = history.state['usuario'];
+  }
 
   ngOnInit(): void {
-    
+
   }
-  public volver(){
+  public volver() {
     this.router.navigate(['/login']);
+  }
+
+  volverLogin() {
+    this.router.navigate(['/login'])
   }
 
 }

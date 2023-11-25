@@ -10,6 +10,7 @@ import { showToast } from '../tools/message-routines';
   providedIn: 'root'
 })
 export class AuthService {
+  private currentUser: BehaviorSubject<any> = new BehaviorSubject(null);
 
   keyUsuario = 'USUARIO_AUTENTICADO';
   usuarioAutenticado = new BehaviorSubject<Usuario | null>(null);

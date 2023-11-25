@@ -30,7 +30,12 @@ export const routes: Routes = [
   {
     path: 'recuperar-fallido',
     loadChildren: () => import('./pages/recuperar-fallido/recuperar-fallido.module').then(m => m.RecuperarFallidoPageModule)
+  },
+  {
+    path: 'registrar',
+    loadChildren: () => import('./pages/registrar/registrar.module').then(m => m.RegistrarPageModule)
   }
+
 ];
 
 @NgModule({

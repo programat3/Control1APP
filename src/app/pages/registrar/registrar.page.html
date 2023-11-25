@@ -1,0 +1,118 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
+    <ion-title>
+      Sistema de Asistencia Duoc UC
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="auth-form" [fullscreen]="true">
+  <ion-item>
+    <ion-label>
+      <h1 style="text-align: center;">Registro</h1>
+    </ion-label>
+  </ion-item>
+  <ion-card style="padding: 5%;">
+    <h2 class="font-negra" style="text-align: center;">Introduce los siguientes datos:</h2>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3>Bloque de inicio</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Bloque de término</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Día</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Hora de inicio</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Hora de término</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Sigla de asignatura</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Nombre del profesor</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Sección</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <h3>Sede</h3>
+        </ion-col>
+        <ion-col>
+          <ion-input></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+  <div class="botonCentradoRegistrar">
+    <ion-button class="ion-text-center">
+      Crear nueva cuenta
+    </ion-button>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ng-container>
+    <ion-list style="text-align:center">
+      <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
+        Volver
+      </ion-button>
+    </ion-list>
+  </ng-container>
+</ion-footer>

@@ -9,16 +9,20 @@ import { LoadingController } from '@ionic/angular';
 })
 export class RecuperarFallidoPage implements OnInit {
 
-  constructor(private loadingController : LoadingController,
+  constructor(private loadingController: LoadingController,
     private route: ActivatedRoute,
-      private router: Router) { 
-      }
+    private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  public volver(){
+  public volver() {
     this.router.navigate(['/login']);
+  }
+
+  volverLogin() {
+    this.router.navigate(['/login'])
   }
 
 }

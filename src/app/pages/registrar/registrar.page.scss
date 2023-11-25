@@ -1,0 +1,33 @@
+ion-grid {
+    --ion-grid-padding: 10px;
+
+    --ion-grid-padding-xs: 10px;
+    --ion-grid-padding-sm: 10px;
+    --ion-grid-padding-md: 10px;
+    --ion-grid-padding-lg: 10px;
+    --ion-grid-padding-xl: 10px;
+
+    --ion-grid-column-padding: 10px;
+
+    --ion-grid-column-padding-xs: 10px;
+    --ion-grid-column-padding-sm: 10px;
+    --ion-grid-column-padding-md: 10px;
+    --ion-grid-column-padding-lg: 10px;
+    --ion-grid-column-padding-xl: 10px;
+}
+
+ion-col {
+    background-color: #666666;
+    border: solid 1px black;
+    color: #fff;
+    text-align: center;
+}
+
+.botonCentradoRegistrar {
+    display: flex;
+    justify-content: center;
+}
+
+ion-content {
+    --background: url('../../../assets/background.jpg') no-repeat center/cover fixed;
+}

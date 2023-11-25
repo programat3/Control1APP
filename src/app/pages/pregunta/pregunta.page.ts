@@ -12,9 +12,9 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 export class PreguntaPage implements OnInit {
   respuestaUsuario = "";
   correo = "";
-  usuario : Usuario;
+  usuario: Usuario;
   fraseSecreta = "123";
-  constructor(private router: Router,private bd: DataBaseService, private authService: AuthService){
+  constructor(private router: Router, private bd: DataBaseService, private authService: AuthService) {
     this.usuario = history.state['usuario'];
 
   }
@@ -25,8 +25,8 @@ export class PreguntaPage implements OnInit {
     });
   }
 
-  async redirigir(){
-    const response = await this.authService.verificarRespuestaSecreta(this.usuario.correo,this.respuestaUsuario);
+  async redirigir() {
+    const response = await this.authService.verificarRespuestaSecreta(this.usuario.correo, this.respuestaUsuario);
     if (!response) {
       this.router.navigate(['/recuperar-fallido']);
     }
@@ -41,4 +41,7 @@ export class PreguntaPage implements OnInit {
 
   }
 
+  volverLogin() {
+    this.router.navigate(['/login'])
+  }
 }

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
-    <ion-title #titulo>
+    <ion-title>
       Sistema de Asistencia Duoc UC
     </ion-title>
   </ion-toolbar>
@@ -42,13 +42,15 @@
     </app-mis-datos>
   </div>
 
-  <ion-footer>
-    <ion-toolbar>
-      <ion-title>
-        <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">
-          Cerrar Sesion
-        </ion-button>
-      </ion-title>
-    </ion-toolbar>
-  </ion-footer>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">
+        Cerrar Sesion
+      </ion-button>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
