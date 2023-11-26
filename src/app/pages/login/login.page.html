@@ -9,12 +9,11 @@
 <br>
 
 <ion-content class="background">
-  <ion-item>
+  <ion-toolbar>
     <ion-label>
       <h1 style="text-align: center;">Inicio de sesión</h1>
     </ion-label>
-  </ion-item>
-
+  </ion-toolbar>
 
   <ion-card color="medium" class="ion-text-center ion-padding-vertical">
 
@@ -52,11 +51,11 @@
 </ion-content>
 
 <ion-footer>
-  <ng-container>
-    <ion-list style="text-align:center">
+  <ion-toolbar color="medium">
+    <ion-title>
       <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
-    </ion-list>
-  </ng-container>
+    </ion-title>
+  </ion-toolbar>
 </ion-footer>

@@ -8,111 +8,56 @@
 </ion-header>
 
 <ion-content class="auth-form" [fullscreen]="true">
-  <ion-item>
+  <ion-toolbar>
     <ion-label>
       <h1 style="text-align: center;">Registro</h1>
     </ion-label>
-  </ion-item>
-  <ion-card style="padding: 5%;">
+  </ion-toolbar>
+  <ion-card color="medium" style="padding: 5%;">
     <h2 class="font-negra" style="text-align: center;">Introduce los siguientes datos:</h2>
 
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <h3>Bloque de inicio</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-item color="medium">
+      <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating"></ion-input>
+    </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <h3>Bloque de término</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-item color="medium">
+      <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
+    </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <h3>Día</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-item color="medium">
+      <ion-input type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <h3>Hora de inicio</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-item color="medium">
+      <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <h3>Hora de término</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
+    <ion-item color="medium">
+      <ion-input type="password" [(ngModel)]="usuario.password" label="Contraseña"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
 
-      <ion-row>
-        <ion-col>
-          <h3>Sigla de asignatura</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <h3>Nombre del profesor</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <h3>Sección</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col>
-          <h3>Sede</h3>
-        </ion-col>
-        <ion-col>
-          <ion-input></ion-input>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-item color="medium">
+      <ion-input type="password" [(ngModel)]="repeticionPassword" label="Repetir contraseña"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
   </ion-card>
 
   <div class="botonCentradoRegistrar">
-    <ion-button class="ion-text-center">
+    <ion-button (click)="crearPerfil()" class="ion-text-center">
       Crear nueva cuenta
     </ion-button>
   </div>
 </ion-content>
 
 <ion-footer>
-  <ng-container>
-    <ion-list style="text-align:center">
+  <ion-toolbar color="medium">
+    <ion-title>
       <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
-    </ion-list>
-  </ng-container>
+    </ion-title>
+  </ion-toolbar>
 </ion-footer>

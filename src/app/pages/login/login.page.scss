@@ -12,3 +12,9 @@ ion-item {
 ion-content {
   --background: url('../../../assets/background.jpg') no-repeat center/cover fixed;
 }
+
+ion-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

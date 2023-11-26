@@ -9,36 +9,33 @@
 <ion-content class="ion-align-items-center" padding class="background">
   <br>
   <div id="contenedor">
-    <ion-item>
+    <ion-item color="medium">
       <ion-label style="display: flex; justify-content: center; align-items: center; color: red;">
         <h2 style="text-align: center;">¡¡No has recuperado tu contraseña!!</h2>
       </ion-label>
     </ion-item>
   </div>
   <img color='medium' src="assets/htpa.jpg" width="500" style="display:inline-block" height="400px">
-  <br>
+  <i data-feather="alert-circle"></i>
   <ion-card color='medium'>
     <ion-row>
       <ion-col size="12" class="ion-text-center">
-        <br>
-        <ion-icon ios="ios-warning" size="large" color="danger"></ion-icon>
-        <br>
         <ion-button (click)="volver()">
-          <ion-icon name="arrow-undo-outline"></ion-icon>
           Volver
         </ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
+
 </ion-content>
 
 
 <ion-footer>
-  <ng-container>
-    <ion-list style="text-align:center">
+  <ion-toolbar color="medium">
+    <ion-title>
       <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
-    </ion-list>
-  </ng-container>
+    </ion-title>
+  </ion-toolbar>
 </ion-footer>

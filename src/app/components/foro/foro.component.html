@@ -1,16 +1,16 @@
-<ion-content [fullscreen]="true">
+<ion-content color="medium" [fullscreen]="true">
   <a #topOfPage href="#topOfPage"></a>
-  <ion-card>
+  <ion-card color="medium">
 
     <ion-card-header>
       <ion-card-title>Ingresa tu publicación</ion-card-title>
     </ion-card-header>
 
-    <ion-item class="ion-padding-horizontal">
+    <ion-item color="medium" class="ion-padding-horizontal">
       <ion-input [(ngModel)]="publicacion.titulo" label="Título" labelPlacement="floating"></ion-input>
     </ion-item>
 
-    <ion-item class="ion-padding-horizontal">
+    <ion-item color="medium" class="ion-padding-horizontal">
       <ion-textarea [(ngModel)]="publicacion.contenido" label="Contenido" labelPlacement="floating"></ion-textarea>
     </ion-item>
 
@@ -21,11 +21,11 @@
 
   </ion-card>
 
-  <ion-card class="sin-bordes">
+  <ion-card color="primary" class="alinear-centro">
     <ion-card-title class="con-padding-top">Publicaciones recientes</ion-card-title>
   </ion-card>
 
-  <ion-card *ngFor="let pub of publicaciones">
+  <ion-card color="medium" *ngFor="let pub of publicaciones">
 
     <ion-card-header>
       <h4>
