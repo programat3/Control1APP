@@ -27,6 +27,7 @@ export class DataBaseService {
   nombreBD = 'asistencia2';
   db!: SQLiteDBConnection;
   listaUsuarios: BehaviorSubject<Usuario[]> = new BehaviorSubject<Usuario[]>([]);
+  listaUsuariosAdmin : Usuario[] = [];
   datosQR: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor(private sqliteService: SqliteService) { }
@@ -56,7 +57,7 @@ export class DataBaseService {
     await this.leerUsuarios();
   }
 
-  async leerUsuarios() {
+  async leerUsuarios(){
     const usuarios: Usuario[] = (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
     this.listaUsuarios.next(usuarios);
   }
@@ -77,4 +78,8 @@ export class DataBaseService {
     return usuarios[0];
   }
 
+  async leerUsuariosAdmin(): Promise<Usuario[]>{
+    this.listaUsuariosAdmin = (await this.db.query('SELECT * FROM USUARIO;')).values as Usuario[];
+    return(this.listaUsuariosAdmin)
+  }
 }

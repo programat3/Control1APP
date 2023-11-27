@@ -15,11 +15,16 @@ import { DataBaseService } from 'src/app/services/data-base.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class AdminComponent implements OnInit {
-  private usuarios: any = [];
+  public usuarios: any = [];
   constructor(private auth: AuthService, private bd: DataBaseService, private router: Router) { 
-    this.usuarios = this.bd.leerUsuarios;
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getUsuarios();
+   }
 
+   async getUsuarios(){
+    this.usuarios = await this.bd.leerUsuariosAdmin();
+   }
+   
 }

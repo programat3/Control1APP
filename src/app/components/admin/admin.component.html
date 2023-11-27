@@ -1,12 +1,14 @@
-<ion-card color="medium">
-  <ion-row>
-    <ion-col>
-      Usuario 1
-      <br>
-      Correo
-      <ion-button>
-        Eliminar
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-card>
+<div *ngFor="let item of usuarios">
+  <ion-card color="medium">
+    <ion-row>
+      <ion-col>
+        {{item.nombre}}
+        <br>
+        {{item.correo}}
+        <ion-button>
+          Eliminar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</div>
