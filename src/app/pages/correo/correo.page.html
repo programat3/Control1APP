@@ -8,38 +8,32 @@
 </ion-header>
 <br>
 
-<ion-content class="background">
+<ion-content>
   <ion-item>
     <ion-label style="display: flex; justify-content: center; align-items: center;">
       <h1 style="text-align: center;">Recupera tu contraseña</h1>
     </ion-label>
   </ion-item>
+  <ion-card color="medium" class="ion-text-center ion-padding-vertical">
+    <ion-card-title class="ion-text-center">
+      <ion-label>
+        Paso 1: ingresa tu correo
+      </ion-label>
+    </ion-card-title>
 
-  <div slot="fixed" style="height: 90%; display: flex; align-items: center;
-      justify-content: center;">
-
-    <ion-card color="medium" class="ion-text-center ion-padding-vertical">
-
-      <ion-card-title class="ion-text-center">
-        <ion-label>
-          Paso 1: ingresa tu correo
-        </ion-label>
-      </ion-card-title>
-
-      <ion-card-content>
-        <ion-item style="max-width: 300px; width: 300px;" color='medium'>
-          <ion-label class="ion-text-left" position="floating">Ingrese su correo</ion-label>
-          <ion-input type="text" size="20%" [(ngModel)]="correo"></ion-input>
-        </ion-item>
-        <br>
-        <ion-row>
-          <ion-col size="6">
-            <ion-button size="default" shape="block" (click)="preguntar()">Siguiente</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <ion-card-content>
+      <ion-item color='medium'>
+        <ion-label class="ion-text-left" position="floating">Ingrese su correo</ion-label>
+        <ion-input type="text" size="20%" [(ngModel)]="correo"></ion-input>
+      </ion-item>
+      <br>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="block" (click)="preguntar()">Siguiente</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 

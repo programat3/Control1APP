@@ -8,42 +8,38 @@
 </ion-header>
 <br>
 
-<ion-content padding class="background">
-
+<ion-content>
   <ion-item>
     <ion-label style="display: flex; justify-content: center; align-items: center;">
       <h1 style="text-align: center;">Recupera tu contraseña</h1>
     </ion-label>
   </ion-item>
 
-  <div slot="fixed" class="centrado">
+  <ion-card color='medium' class="ion-text-center ion-padding-vertical">
 
-    <ion-card color='medium' class="ion-text-center ion-padding-vertical">
+    <ion-card-title class="ion-text-center">
+      <ion-label>
+        Paso 2: Responda la pregunta
+      </ion-label>
+      <br>
+      <br>
+      <ion-label>
+        <h2>{{ usuario.fraseSecreta }}</h2>
+      </ion-label>
+    </ion-card-title>
 
-      <ion-card-title class="ion-text-center">
-        <ion-label>
-          Paso 2: Responda la pregunta
-        </ion-label>
-        <br>
-        <br>
-        <ion-label>
-          <h2>{{ usuario.fraseSecreta }}</h2>
-        </ion-label>
-      </ion-card-title>
-
-      <ion-card-content>
-        <ion-item style="max-width: 300px; width: 300px;" color="medium">
-          <ion-label class="ion-text-left" position="floating">Respuesta secreta</ion-label>
-          <ion-input type="text" size="20%" [(ngModel)]="respuestaUsuario"></ion-input>
-        </ion-item>
-        <ion-row>
-          <ion-col size="12">
-            <ion-button shape="block" (click)="redirigir()">Validar Pregunta</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-  </div>
+    <ion-card-content>
+      <ion-item color="medium">
+        <ion-label position="floating">Respuesta secreta</ion-label>
+        <ion-input type="text" [(ngModel)]="respuestaUsuario"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button shape="block" (click)="redirigir()">Validar Pregunta</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-footer>

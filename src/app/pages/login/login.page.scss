@@ -3,14 +3,11 @@ ion-content {
   --padding-bottom: 20px;
   --padding-end: 20px;
   --padding-start: 20px;
+  --background: url('../../../assets/background.jpg') no-repeat center/cover fixed;
 }
 
 ion-item {
   --padding-bottom: 10px;
-}
-
-ion-content {
-  --background: url('../../../assets/background.jpg') no-repeat center/cover fixed;
 }
 
 ion-toolbar {
