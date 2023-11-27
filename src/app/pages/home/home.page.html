@@ -20,6 +20,9 @@
       <ion-segment-button value="misDatos">
         <ion-label class="titulo_componentes">Mis Datos</ion-label>
       </ion-segment-button>
+      <ion-segment-button value="admin">
+        <ion-label class="titulo_componentes">Admin</ion-label>
+      </ion-segment-button>
 
     </ion-segment>
   </ion-toolbar>
@@ -41,8 +44,10 @@
     <app-mis-datos>
     </app-mis-datos>
   </div>
-
-
+  <div *ngIf="selectTabs == 'admin'">
+    <app-admin>
+    </app-admin>
+  </div>
 </ion-content>
 
 <ion-footer>
