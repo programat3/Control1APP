@@ -17,13 +17,19 @@ export class RegistrarPage implements OnInit {
   constructor(private auth: AuthService, private bd: DataBaseService, private router: Router) { }
 
   ngOnInit() {
-    this.auth.usuarioAutenticado.subscribe((usuario) => {
-      this.usuario = usuario ? usuario : new Usuario();
-      this.repeticionPassword = usuario ? usuario.password : '';
-    });
+    //this.auth.usuarioAutenticado.subscribe((usuario) => {
+      //this.usuario = usuario ? usuario : new Usuario();
+     // this.repeticionPassword = usuario ? usuario.password : '';
+   // });
   }
   async crearPerfil() {
-
+    if (this.usuario.password == this.repeticionPassword){
+      this.auth.guardarUsuarioAutenticado(this.usuario)
+    }
+    else{
+      alert("Contraseñas no coinciden")
+    }
+      
   }
 
   volverLogin() {
