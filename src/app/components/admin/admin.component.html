@@ -5,9 +5,11 @@
         {{item.nombre}}
         <br>
         {{item.correo}}
-        <ion-button>
-          Eliminar
-        </ion-button>
+        <div class="alinear-derecha">
+          <ion-button (click)="eliminarUsuario(item.correo)">
+            Eliminar
+          </ion-button>
+        </div>
       </ion-col>
     </ion-row>
   </ion-card>

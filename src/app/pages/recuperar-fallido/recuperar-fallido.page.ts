@@ -17,10 +17,6 @@ export class RecuperarFallidoPage implements OnInit {
   ngOnInit() {
   }
 
-  public volver() {
-    this.router.navigate(['/login']);
-  }
-
   volverLogin() {
     this.router.navigate(['/login'])
   }
