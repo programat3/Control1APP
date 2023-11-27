@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { Usuario } from 'src/app/model/Usuario';
+import { showAlertDUOC } from 'src/app/tools/message-routines';
 
 @Component({
   selector: 'app-registrar',
@@ -24,10 +25,16 @@ export class RegistrarPage implements OnInit {
   }
   async crearPerfil() {
     if (this.usuario.password == this.repeticionPassword){
-      this.auth.guardarUsuarioAutenticado(this.usuario)
+      if(await this.bd.leerUsuario(this.usuario.correo)){
+        this.auth.guardarUsuarioAutenticado(this.usuario)
+      }
+      else{
+        showAlertDUOC("Usuario ya creado")
+      }
+      
     }
     else{
-      alert("Contraseñas no coinciden")
+      showAlertDUOC("Contraseñas no coinciden")
     }
       
   }

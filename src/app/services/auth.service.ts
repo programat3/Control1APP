@@ -83,7 +83,6 @@ export class AuthService {
       return usuario; // Respuesta correcta
     }
     else {
-      console.log("Holis");
       return undefined; // Respuesta incorrecta
     }
 
