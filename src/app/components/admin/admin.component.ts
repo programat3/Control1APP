@@ -16,15 +16,19 @@ import { DataBaseService } from 'src/app/services/data-base.service';
 })
 export class AdminComponent implements OnInit {
   public usuarios: any = [];
-  constructor(private auth: AuthService, private bd: DataBaseService, private router: Router) { 
+  constructor(private auth: AuthService, private bd: DataBaseService, private router: Router) {
   }
 
   ngOnInit() {
     this.getUsuarios();
-   }
+  }
 
-   async getUsuarios(){
+  async getUsuarios() {
     this.usuarios = await this.bd.leerUsuariosAdmin();
-   }
-   
+  }
+
+  public eliminarUsuario(correo: string) {
+    this.bd.eliminarUsuarioUsandoCorreo(correo)
+  }
+
 }
