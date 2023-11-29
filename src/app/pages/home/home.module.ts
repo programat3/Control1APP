@@ -8,7 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { QrComponent } from 'src/app/components/qr/qr.component';
 import { MiclaseComponent } from 'src/app/components/miclase/miclase.component';
 import { ForoComponent } from 'src/app/components/foro/foro.component';
-import { MisdatosComponent } from 'src/app/components/mis-datos/mis-datos.component';
+import { MisDatosComponent } from 'src/app/components/mis-datos/mis-datos.component';
 import { AdminComponent } from 'src/app/components/admin/admin.component';
 
 
