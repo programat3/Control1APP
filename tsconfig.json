@@ -33,19 +33,4 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "description": "An Ionic project",
-  // Matan el codigo pero ayudan al problema de la propiedad toBeTruthy() y otras
-  // "exclude": [
-  //   "cypress.config.ts"
-  // ],
-  // "files": [
-  //   "cypress.config.ts"
-  // ]
-  "exclude": [
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.spec.ts",
-  ]
 }

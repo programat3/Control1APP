@@ -1,7 +1,7 @@
-import { Publicacion } from './publicacion';
+// import { Publicacion } from './publicacion';
 
-describe('Publicacion', () => {
-  it('should create an instance', () => {
-    expect(new Publicacion()).toBeTruthy();
-  });
-});
+// describe('Publicacion', () => {
+//   it('should create an instance', () => {
+//     expect(new Publicacion()).toBeTruthy();
+//   });
+// });

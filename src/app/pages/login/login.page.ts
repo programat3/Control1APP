@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  // standalone: true,
+  // imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
-  correo = "";
-  password = "";
+  correo = "atorres@duocuc.cl";
+  password = "1234";
   constructor(private bd: DataBaseService, private router: Router, private authService: AuthService) {
   }
 
