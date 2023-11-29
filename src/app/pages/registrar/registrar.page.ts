@@ -26,10 +26,11 @@ export class RegistrarPage implements OnInit {
   async crearPerfil() {
     if (this.usuario.password == this.repeticionPassword){
       if(await this.bd.leerUsuario(this.usuario.correo)){
-        this.auth.guardarUsuarioAutenticado(this.usuario)
+        showAlertDUOC("Usuario ya creado")
       }
       else{
-        showAlertDUOC("Usuario ya creado")
+        this.auth.guardarUsuarioAutenticado(this.usuario)
+        showAlertDUOC("Usuario creado exitosamente")
       }
       
     }
