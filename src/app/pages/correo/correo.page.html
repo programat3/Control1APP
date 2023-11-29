@@ -6,7 +6,6 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<br>
 
 <ion-content>
   <ion-item>
@@ -24,12 +23,12 @@
     <ion-card-content>
       <ion-item color='medium'>
         <ion-label class="ion-text-left" position="floating">Ingrese su correo</ion-label>
-        <ion-input type="text" size="20%" [(ngModel)]="correo"></ion-input>
+        <ion-input type="text" size="20%" id="correo" [(ngModel)]="correo"></ion-input>
       </ion-item>
       <br>
       <ion-row>
         <ion-col size="12">
-          <ion-button shape="block" (click)="preguntar()">Siguiente</ion-button>
+          <ion-button shape="block" id="botonSiguiente" (click)="preguntar()">Siguiente</ion-button>
         </ion-col>
       </ion-row>
     </ion-card-content>
@@ -41,7 +40,7 @@
 <ion-footer>
   <ion-toolbar color="medium">
     <ion-title>
-      <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
+      <ion-button id="volver" expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
     </ion-title>

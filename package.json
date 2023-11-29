@@ -25,7 +25,7 @@
     "@angular/router": "^16.0.0",
     "@capacitor-community/sqlite": "^5.4.2-1",
     "@capacitor-mlkit/barcode-scanning": "^5.3.0",
-    "@capacitor/android": "5.5.0",
+    "@capacitor/android": "^5.5.1",
     "@capacitor/app": "5.0.6",
     "@capacitor/camera": "^5.0.7",
     "@capacitor/core": "5.5.0",
@@ -56,6 +56,7 @@
     "@angular/compiler-cli": "^16.0.0",
     "@angular/language-service": "^16.0.0",
     "@capacitor/cli": "5.5.0",
+    "@cypress/schematic": "^2.0.0",
     "@ionic/angular-toolkit": "^9.0.0",
     "@types/jasmine": "~4.3.0",
     "@types/node": "^12.11.1",
@@ -78,9 +79,7 @@
     "typescript": "^5.0.4"
   },
   "description": "An Ionic project",
-  "lib": [
-    "es2018",
-    "dom"
-  ],
-  "types": "cypress"
+  "jshintConfig": {
+    "esversion": 6
+  }
 }

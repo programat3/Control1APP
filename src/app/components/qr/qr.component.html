@@ -1,16 +1,15 @@
-<div class="fondo">
+<div>
   <ion-item color="medium">
     <ion-label style="display: flex; justify-content: center; align-items: center;">
-      <h1 style="text-align: center;">¡Bienvenid@!</h1>
+      <h1 id="saludo" style="text-align: center;">¡Bienvenid@!</h1>
     </ion-label>
     <br>
     <ion-label>
-      <h2 style="text-align: center;">{{ usuario.nombre }}</h2>
+      <h2 id="nombreUsuario" style="text-align: center;">{{ usuario.nombre }}</h2>
     </ion-label>
   </ion-item>
 
-  <ion-button *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
-    <ion-icon slot="start" name="camera"></ion-icon>
+  <ion-button id="comenzarEscaneo" *ngIf="!escaneando" (click)="comenzarEscaneoQR()" expand="full" shape="round">
     Comenzar Escaneo QR
   </ion-button>
 

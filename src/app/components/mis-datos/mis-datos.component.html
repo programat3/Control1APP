@@ -1,34 +1,36 @@
 <ion-card color="medium">
   <ion-item color="medium">
-    <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating"
+    <ion-input id="correo" type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating"
       disabled="true"></ion-input>
   </ion-item>
 
   <ion-item color="medium">
-    <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
-  </ion-item>
-
-  <ion-item color="medium">
-    <ion-input type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta"
+    <ion-input id="nombre" type="text" [(ngModel)]="usuario.nombre" label="Nombre"
       labelPlacement="floating"></ion-input>
   </ion-item>
 
   <ion-item color="medium">
-    <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta"
+    <ion-input id="fraseSecreta" type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta"
       labelPlacement="floating"></ion-input>
   </ion-item>
 
   <ion-item color="medium">
-    <ion-input type="password" [(ngModel)]="usuario.password" label="Contraseña" labelPlacement="floating"></ion-input>
+    <ion-input id="respuestaSecreta" type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta"
+      labelPlacement="floating"></ion-input>
   </ion-item>
 
   <ion-item color="medium">
-    <ion-input type="password" [(ngModel)]="repeticionPassword" label="Repetir contraseña"
+    <ion-input id="password" type="password" [(ngModel)]="usuario.password" label="Contraseña"
+      labelPlacement="floating"></ion-input>
+  </ion-item>
+
+  <ion-item color="medium">
+    <ion-input id="repeticionPassword" type="password" [(ngModel)]="repeticionPassword" label="Repetir contraseña"
       labelPlacement="floating"></ion-input>
   </ion-item>
 
   <div class="alinear-centro" color="medium">
-    <ion-button (click)="actualizarPerfil()">
+    <ion-button id="botonActualizar" (click)="actualizarPerfil()">
       Actualizar mis datos
     </ion-button>
   </div>

@@ -9,7 +9,7 @@ describe('MisDatosComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MisDatosComponent ],
+      declarations: [MisDatosComponent],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

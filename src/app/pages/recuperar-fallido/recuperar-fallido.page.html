@@ -6,6 +6,7 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <br>
   <ion-card color="medium">
@@ -19,14 +20,16 @@
       </ion-col>
     </ion-row>
   </ion-card>
-  <img color='medium' src="assets/htpa.jpg" width="500" style="display:inline-block" height="400px">
+  <div class="estilo-imagen">
+    <img color='medium' src="assets/htpa.jpg">
+  </div>
 </ion-content>
 
 
 <ion-footer>
   <ion-toolbar color="medium">
     <ion-title>
-      <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
+      <ion-button id="volver" expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
     </ion-title>

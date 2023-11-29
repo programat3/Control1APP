@@ -10,7 +10,7 @@
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
@@ -22,6 +22,9 @@
       "es2018",
       "dom"
     ],
+    "types": [
+      "cypress"
+    ],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {
@@ -31,7 +34,4 @@
     "strictTemplates": true
   },
   "description": "An Ionic project",
-  "jshintConfig": {
-    "esversion": 6
-  }
 }

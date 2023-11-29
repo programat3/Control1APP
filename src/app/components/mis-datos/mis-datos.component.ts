@@ -14,7 +14,7 @@ import { showAlertDUOC, showToast } from 'src/app/tools/message-routines';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule],
 })
-export class MisdatosComponent  implements OnInit {
+export class MisDatosComponent implements OnInit {
 
   usuario = new Usuario();
   repeticionPassword = '';
@@ -23,12 +23,12 @@ export class MisdatosComponent  implements OnInit {
 
   ngOnInit() {
     this.authService.usuarioAutenticado.subscribe((usuario) => {
-      this.usuario = usuario? usuario : new Usuario();
-      this.repeticionPassword = usuario? usuario.password : '';
+      this.usuario = usuario ? usuario : new Usuario();
+      this.repeticionPassword = usuario ? usuario.password : '';
     });
   }
 
-  validarCampo(nombreCampo:string, valor: string) {
+  validarCampo(nombreCampo: string, valor: string) {
     if (valor.trim() === '') {
       showAlertDUOC(`Debe ingresar un valor para el campo "${nombreCampo}".`);
       return false;

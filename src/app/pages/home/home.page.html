@@ -7,20 +7,20 @@
   </ion-toolbar>
   <ion-toolbar color="medium">
     <ion-segment [(ngModel)]="selectTabs">
-      <ion-segment-button value="qr">
+      <ion-segment-button id="botonQR" value="qr">
         <ion-label class="titulo_componentes">QR</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="miClase">
+      <ion-segment-button id="botonMiClase" value="miClase">
         <ion-label class="titulo_componentes">Mi
           Clase</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="foro">
+      <ion-segment-button id="botonForo" value="foro">
         <ion-label class="titulo_componentes">Foro</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="misDatos">
+      <ion-segment-button id="botonMisDatos" value="misDatos">
         <ion-label class="titulo_componentes">Mis Datos</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="admin">
+      <ion-segment-button id="botonAdmin" value="admin">
         <ion-label class="titulo_componentes">Admin</ion-label>
       </ion-segment-button>
 
@@ -53,7 +53,7 @@
 <ion-footer>
   <ion-toolbar color="medium">
     <ion-title>
-      <ion-button (click)="cerrarSesion()" expand="block" fill="clear" shape="round">
+      <ion-button id="cerrarSesion" (click)="cerrarSesion()" expand="block" fill="clear" shape="round">
         Cerrar Sesion
       </ion-button>
     </ion-title>

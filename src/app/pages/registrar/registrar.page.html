@@ -17,36 +17,38 @@
     <h2 class="font-negra" style="text-align: center;">Introduce los siguientes datos:</h2>
 
     <ion-item color="medium">
-      <ion-input type="text" [(ngModel)]="usuario.correo" label="Correo" labelPlacement="floating"></ion-input>
-    </ion-item>
-
-    <ion-item color="medium">
-      <ion-input type="text" [(ngModel)]="usuario.nombre" label="Nombre" labelPlacement="floating"></ion-input>
-    </ion-item>
-
-    <ion-item color="medium">
-      <ion-input type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta"
+      <ion-input id="correoRegistrar" type="text" [(ngModel)]="usuario.correo" label="Correo"
         labelPlacement="floating"></ion-input>
     </ion-item>
 
     <ion-item color="medium">
-      <ion-input type="text" [(ngModel)]="usuario.respuestaSecreta" label="Respuesta secreta"
+      <ion-input id="nombreRegistrar" type="text" [(ngModel)]="usuario.nombre" label="Nombre"
         labelPlacement="floating"></ion-input>
     </ion-item>
 
     <ion-item color="medium">
-      <ion-input type="password" [(ngModel)]="usuario.password" label="Contraseña"
+      <ion-input id="fraseSecretaRegistrar" type="text" [(ngModel)]="usuario.fraseSecreta" label="Frase secreta"
         labelPlacement="floating"></ion-input>
     </ion-item>
 
     <ion-item color="medium">
-      <ion-input type="password" [(ngModel)]="repeticionPassword" label="Repetir contraseña"
+      <ion-input id="respuestaSecretaRegistrar" type="text" [(ngModel)]="usuario.respuestaSecreta"
+        label="Respuesta secreta" labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item color="medium">
+      <ion-input id="passwordRegistrar" type="password" [(ngModel)]="usuario.password" label="Contraseña"
         labelPlacement="floating"></ion-input>
+    </ion-item>
+
+    <ion-item color="medium">
+      <ion-input id="repeticionPasswordRegistrar" type="password" [(ngModel)]="repeticionPassword"
+        label="Repetir contraseña" labelPlacement="floating"></ion-input>
     </ion-item>
   </ion-card>
 
   <div class="botonCentradoRegistrar">
-    <ion-button (click)="crearPerfil()" class="ion-text-center">
+    <ion-button id="crearPerfil" (click)="crearPerfil()" class="ion-text-center">
       Crear nueva cuenta
     </ion-button>
   </div>
@@ -55,7 +57,7 @@
 <ion-footer>
   <ion-toolbar color="medium">
     <ion-title>
-      <ion-button expand="block" fill="clear" (click)="volverLogin()" shape="round">
+      <ion-button id="volver" expand="block" fill="clear" (click)="volverLogin()" shape="round">
         Volver
       </ion-button>
     </ion-title>
