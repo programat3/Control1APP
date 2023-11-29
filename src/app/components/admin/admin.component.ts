@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 import { Usuario } from 'src/app/model/Usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { DataBaseService } from 'src/app/services/data-base.service';
+import { showAlertDUOC } from 'src/app/tools/message-routines';
 
 @Component({
   selector: 'app-admin',
@@ -27,8 +28,16 @@ export class AdminComponent implements OnInit {
     this.usuarios = await this.bd.leerUsuariosAdmin();
   }
 
-  public eliminarUsuario(correo: string) {
-    this.bd.eliminarUsuarioUsandoCorreo(correo)
+  public eliminarUsuario(usu: any) {
+    if(usu == 'admin@duocuc.cl'){
+      showAlertDUOC("No se puede borrar al admin");
+      return;
+    }
+    else{
+      this.bd.eliminarUsuarioUsandoCorreo(usu);
+      showAlertDUOC("Se eliminó");
+    }
+    
   }
 
 }

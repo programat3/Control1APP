@@ -19,11 +19,10 @@
       </ion-segment-button>
       <ion-segment-button id="botonMisDatos" value="misDatos">
         <ion-label class="titulo_componentes">Mis Datos</ion-label>
-      </ion-segment-button>
-      <ion-segment-button id="botonAdmin" value="admin">
-        <ion-label class="titulo_componentes">Admin</ion-label>
-      </ion-segment-button>
-
+      </ion-segment-button >
+        <ion-segment-button *ngIf="soyAdmin == 'true'" id="botonAdmin" value="admin">
+          <ion-label class="titulo_componentes">Admin</ion-label>
+        </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>

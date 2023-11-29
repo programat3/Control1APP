@@ -9,6 +9,7 @@ import { MisDatosComponent } from 'src/app/components/mis-datos/mis-datos.compon
 import { AdminComponent } from 'src/app/components/admin/admin.component';
 import { QrComponent } from 'src/app/components/qr/qr.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { Usuario } from 'src/app/model/Usuario';
 
 @Component({
   selector: 'app-home',
@@ -21,11 +22,19 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class HomePage implements OnInit, AfterViewInit {
   selectTabs = 'qr';
+  plataforma: any;
+  sqliteService: any;
+  usuario = new Usuario();
+  soyAdmin = 'false';
   constructor(private auth: AuthService, private animationController: AnimationController) {
   }
   @ViewChild('titulo', { read: ElementRef }) itemTitulo!: ElementRef;
 
   ngOnInit(): void {
+    this.auth.usuarioAutenticado.subscribe((usuario: any) => {
+      this.usuario = usuario ? usuario : new Usuario();
+    });
+   this.comprobarAdmin();
   }
 
   public ngAfterViewInit(): void {
@@ -51,5 +60,12 @@ export class HomePage implements OnInit, AfterViewInit {
     this.selectTabs = 'miClase';
 
   }
-
+  public comprobarAdmin(){
+    if(this.usuario.nombre == 'Admin'){
+      this.soyAdmin = 'true';
+    }
+    else{
+      this.soyAdmin='false';
+    }
+  }
 }
