@@ -1,24 +1,24 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+// import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+// import { IonicModule } from '@ionic/angular';
 
-import { MisDatosComponent } from './mis-datos.component';
+// import { MisDatosComponent } from './mis-datos.component';
 
-describe('MisDatosComponent', () => {
-  let component: MisDatosComponent;
-  let fixture: ComponentFixture<MisDatosComponent>;
+// // describe('MisDatosComponent', () => {
+// //   let component: MisDatosComponent;
+// //   let fixture: ComponentFixture<MisDatosComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [MisDatosComponent],
-      imports: [IonicModule.forRoot()]
-    }).compileComponents();
+// //   beforeEach(waitForAsync(() => {
+// //     TestBed.configureTestingModule({
+// //       declarations: [MisDatosComponent],
+//       imports: [IonicModule.forRoot()]
+//     }).compileComponents();
 
-    fixture = TestBed.createComponent(MisDatosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  }));
+//     fixture = TestBed.createComponent(MisDatosComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   }));
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

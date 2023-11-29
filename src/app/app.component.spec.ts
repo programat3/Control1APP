@@ -18,11 +18,20 @@ describe('Probar el comienzo de la aplicacion', () => {
         imports: [RouterTestingModule]
       }
     });
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
 
-    it('Probar que el titulo de la App sea "Asistencia Duoc UC"', () => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
-      expect(app.title).toEqual('Asistencia Duoc UC');
+  it('Probar que el titulo de la App sea "Asistencia Duoc UC"', () => {
+    TestBed.overrideComponent(AppComponent, {
+      add: {
+        imports: [RouterTestingModule]
+      }
     });
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    alert(app.title);
+    expect(app.title).toEqual('Asistencia Duoc UC');
   });
 });
