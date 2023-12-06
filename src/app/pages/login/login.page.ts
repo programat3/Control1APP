@@ -14,8 +14,8 @@ import { Router } from '@angular/router';
   // imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LoginPage implements OnInit {
-  correo = "atorres@duocuc.cl";
-  password = "1234";
+  correo = "";
+  password = "";
   constructor(private bd: DataBaseService, private router: Router, private authService: AuthService) {
   }
 

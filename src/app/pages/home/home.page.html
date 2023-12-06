@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <img color='medium' src="assets/logo.jpg" width="220px" style="display:inline-block" height="50px">
-    <ion-title>
+    <ion-title #titulo>
       Sistema de Asistencia Duoc UC
     </ion-title>
   </ion-toolbar>
@@ -19,10 +19,10 @@
       </ion-segment-button>
       <ion-segment-button id="botonMisDatos" value="misDatos">
         <ion-label class="titulo_componentes">Mis Datos</ion-label>
-      </ion-segment-button >
-        <ion-segment-button *ngIf="soyAdmin == 'true'" id="botonAdmin" value="admin">
-          <ion-label class="titulo_componentes">Admin</ion-label>
-        </ion-segment-button>
+      </ion-segment-button>
+      <ion-segment-button *ngIf="soyAdmin == 'true'" id="botonAdmin" value="admin">
+        <ion-label class="titulo_componentes">Admin</ion-label>
+      </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
