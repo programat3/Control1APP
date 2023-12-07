@@ -9,8 +9,8 @@ describe('Verificar mi aplicacion', () => {
       cy.contains('Ingresar').click();
       cy.intercept('/home').as('route').then(() => {
         // cy.wait(3000);
-        // cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc UC');
-        // cy.get('#saludo').should('contain.text', '¡Bienvenido! Juan Perez Gonzsales!')
+        cy.get('ion-title').should('contain.text', 'Sistema de Asistencia Duoc UC');
+        cy.get('#saludo').should('contain.text', '¡Bienvenido! Juan Perez Gonzsales!')
       });
     });
   });

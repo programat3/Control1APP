@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
 import { DataBaseService } from 'src/app/services/data-base.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -17,6 +14,8 @@ export class LoginPage implements OnInit {
   correo = "";
   password = "";
   constructor(private bd: DataBaseService, private router: Router, private authService: AuthService) {
+    this.correo = "";
+    this.password = "";
   }
 
   async ngOnInit() {

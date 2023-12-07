@@ -15,7 +15,8 @@ describe('Pruebas Página Ingreso:', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [IonicModule.forRoot(), FormsModule, CommonModule, LoginPage],
+            imports: [IonicModule.forRoot(), FormsModule, CommonModule],
+            declarations: [LoginPage],
             providers: [DataBaseService, AuthService, Storage, SqliteService, DataBaseService],
         }).compileComponents();
 
@@ -29,12 +30,11 @@ describe('Pruebas Página Ingreso:', () => {
     it('Prueba para crear la pagina de ingreso', () => {
         expect(component).toBeTruthy();
     });
-    it('Debería asignar correo y contraseña a nombre de Ana Torres', () => {
-        expect(component.correo).toBe('atorres@duocuc.cl');
-        expect(component.password).toBe('1234');
+    it('Debería asignar correo y contraseña vacio para que ingrese cualquier usuario', () => {
+        expect(component.correo).toBe('');
+        expect(component.password).toBe('');
     });
     it('Debería poder iniciar sesión con Ana Torres', async () => {
-
         const authService = TestBed.inject(AuthService);
         spyOn(authService, 'login');
         component.correo = 'atorres@duocuc.cl';
