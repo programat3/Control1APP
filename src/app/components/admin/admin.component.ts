@@ -23,7 +23,6 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.getUsuarios();
   }
-
   async getUsuarios() {
     this.usuarios = await this.bd.leerUsuariosAdmin();
   }
@@ -36,6 +35,7 @@ export class AdminComponent implements OnInit {
     else{
       this.bd.eliminarUsuarioUsandoCorreo(usu);
       showAlertDUOC("Se eliminó");
+
     }
     
   }
